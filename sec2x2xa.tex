@@ -1,0 +1,74 @@
+\section{べき級数の微分}
+
+\subsection{微分の定義}
+複素関数の微分は，実数の場合にならって次のように定める．
+
+\定義{2.14}
+\begin{equation}
+	\frac{df}{dz}(z)	=	\lim_{h\rightarrow	0}	\frac{f(z+h)-f(z)}{h}
+	\label{eq2x20}
+\end{equation}
+詳しく言えば，右辺の$h$が$0$でない複素数の値をとりつつ$|h|\rightarrow	0$となる極限，の意味である．
+\□
+
+実関数の場合と同様に，
+\[
+	f'(z)		=	\frac{df}{dz}	(z)	\quad	(\text{または}	\frac{d}{dz}	f(z)),
+	\quad	f''(z)	=	\frac{d^2f}{dz^2}(z),	\cdots
+\]
+などとも書く．
+
+\例{2.15}
+例えば$f(z)=z^2$とすると，
+\[
+	\lim_{h\rightarrow	0}	\frac{(z+h)^2	-	z^2}{h}	=	\lim_{h\rightarrow	0}	(2z	+	h)=2z
+\]
+で，これはすべての点で微分可能．同様にして
+\begin{equation}
+	\frac{d}{dz}z^n	=	n	z^{n-1}	\quad	(n=0,1,2,\cdots)
+	\label{eq2x21}
+\end{equation}
+が複素関数についても成り立っている．
+\□
+
+\問{4}
+$z	\ne	0$のとき(\ref{eq2x21})は$n=	-1,-2,	\cdots$でも成り立つことを確かめよ．
+
+次の性質は実関数の微分とまったく同じように導くことができるから，
+繰り返すまでもないだろう．
+
+\命題{2.16}
+$f(z)$が点$z$で微分可能なら，そこで連続である：
+\[
+	\lim_{h\rightarrow	0}	f(z+h)	=	f(z).
+\]
+
+\命題{2.17}
+$f(z),g(z)$が微分可能であるとき，
+\begin{align*}
+	&\frac{d}{dz}	(f(z)	\pm	g(z))	=	\frac{d}{dz}f(z)	\pm	\frac{d}{dz}g(z),	\\
+	&\frac{d}{dz}	(f(z)	g(z))	=	\left(	\frac{d}{dz}f(z)	\right)	g(z)	+	f(z)	\left(	\frac{d}{dz}g(z)	\right)	\\
+	&\frac{d}{dz}	\alpha	f(z)	=	\alpha	\frac{d}{dz}	f(z)	\quad	(\alpha	\text{は定数})
+\end{align*}
+\□
+
+\命題{2.18}
+$f(z)$が点$z$で，$g(w)$が対応する点$w	=	f(z)$で，それぞれ微分可能ならば，
+$g(f(z))$はその点$z$で微分可能であって
+\[
+	\frac{d}{dz}	g(f(z))	=	g'	(f(z))	f'(z).
+\]
+特に，$f(z)$が点$z$で微分可能で$f(z)	\ne	0$ならば$1/f(z)$もそこで微分可能であって
+\[
+	\frac{d}{dz}	\left(\frac{1}{f(z)}	\right)	=	-	\frac{f'(z)}{f(z)^2}.
+\]
+$z^n	\:	(n=0,1,2,	\cdots)$は微分可能だから，これらの性質よりすべての多項式は
+いたるところ微分可能である．また有理関数$Q(z)/P(z)$は分母の$P(z)$が零になる点を除き微分可能である．
+
+\注意{2.19}
+形式的には$(\log	f(z))'	=	f'(z)/f(z)$であるからこれを$f(z)$の\textbf{対数微分}
+(logarithmic derivative)という．積$h(z)	=	f(z)	g(z)$の微分法は対数微分の形に
+\[
+	\frac{h'(z)}{h(z)}	=	\frac{f'(z)}{f(z)}	+	\frac{g'(z)}{g(z)}
+\]
+と書いておくと分かりやすい．

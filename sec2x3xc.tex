@@ -1,0 +1,74 @@
+\subsection{べき級数の逆数}
+
+合成関数の特別な場合として，べき級数の逆数がある．
+
+\定理{2.28}
+
+収束べき級数$f(z)$が$f(0)	\ne	0$を満たすならば，$1/f(z)$は
+十分小さい$|z|$の値で収束するべき級数に展開される．
+\□
+
+実際，適当に定数倍して$f(0)=1$としてよいが，$f(z)=1	+	\varphi (z)$
+($\varphi (z)$は$z$の1次から始まる級数)と書けば$g(w)	=	1/(1+w)$との
+合成関数$1/f(z)=	g(\varphi (z))$の問題に帰着する．
+
+\例{2.29}
+\[
+	\frac{e^z-1}{z}	=	1	+	\frac{z}{2!}	+	\frac{z^2}{3!}	+	\cdots
+\]
+の逆数を展開してみる．
+\[
+	\frac{z}{e^z-1}	=	1	+	b_1	z		+	b_2	z^2	+	\cdots
+\]
+とおけば，係数$b_n$は
+\begin{align*}
+	1	&=	\left(1	+	\frac{z}{2!}+	\frac{z^2}{3!}	+	\cdots	\right)
+				\left(1+b_1	z	+	b_2	z^2	+	\cdots	\right),	\\
+	0	&=	b_1	+	\frac{1}{2!},	\quad	0=b_2	+	\frac{1}{2!}	b_1	+	\frac{1}{3!},	\cdots
+\end{align*}
+から順に$\displaystyle	b_1	+	\frac{1}{2},	\quad	\frac{1}{12},	\cdots$と決めることができる．
+今の場合
+\begin{equation}
+	\frac{z}{e^z-1}+\frac{z}{2}	=	\frac{z}{2}	\frac{e^{z/2}+e^{-z/2}}{e^{z/2}-e^{-z/2}}
+	\label{eq2x29}
+\end{equation}
+は偶関数だから右辺の展開は偶数べきだけを含み，
+\begin{equation}
+	\frac{z}{e^z-1}	+	\frac{z}{2}	=	1	+	\sum_{n=1}^{\infty}	(-1)^{n-1}	\frac{B_{2n}}{(2n)!}z^{2n}
+	\label{eq2x30}
+\end{equation}
+の形になる．この級数の収束半径は$\rho	=	2	\pi$となることがあとでわかる
+（第４章例4.11）．
+
+$B_{2n}$は\textbf{ベルヌーイ(Bernoulli)数}と呼ばれる有理数で，整数論や位相幾何学で重要な
+役割を果たす．はじめのいくつかを書くと，
+\begin{align*}
+	B_2	=	\frac{1}{6},	\quad
+	B_4	=	\frac{1}{30},	\quad
+	B_6	=	\frac{1}{42},	\quad
+	B_8	=	\frac{1}{30},	\quad
+	B_{10}	=	\frac{5}{66},	\quad
+	B_{12}	=	\frac{691}{2730},	\quad	\\
+	B_{14}	=	\frac{6}{7},	\quad
+	B_{16}	=	\frac{3617}{510},	\quad
+	B_{18}	=	\frac{43867}{798},	\quad
+	B_{20}	=	\frac{174611}{330},	\cdots
+\end{align*}
+と，なかなか神秘的である．実は$n$が偶数であるとき，
+\[
+	1+\frac{1}{2^n}	+	\frac{1}{3^n}	+	\frac{1}{4^n}	+	\cdots	
+	=	\frac{2^{n-1}B_n}{n!}	\pi^n	\quad	(n=2,	4,	6,	\cdots)
+\]
+となることが知られている（第5章系5.8）．
+これに反して$n$が奇数のときの左辺については，$n=3$が無理数であることが近年証明された
+以外めぼしい性質はわかっていないようである．
+\□
+
+なお(\ref{eq2x29})の右辺で$z$を$2	i	z$に置き換えれば，余接関数$\cot	z	=	\cos	z	/	\sin	z$の
+べき級数展開を得る．
+\begin{equation}
+	z	\cot	z	=1	-	\sum_{n=1}^{\infty}	\frac{2^{2n}B_{2n}}{(2n)1}	z^{2n}.	
+	\label{eq2x31}
+\end{equation}
+
+

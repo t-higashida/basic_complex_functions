@@ -1,0 +1,46 @@
+\section{べき級数の生み出す関数}
+
+与えられたべき級数から新しいべき級数を作る操作を考えよう．
+
+\subsection{べき級数の積}
+
+定理{1.11}から，つぎの事実はただちに従う．
+
+\定理{2.24}
+
+べき級数$f(z)	=	\sum_{n=0}^\infty	a_n	z^n,	\:	g(z)	=	\sum_{n=0}^{\infty}	b_n	z^n$の
+収束半径をそれぞれ$\rho_1,	\rho_2$とすると，積$f(z)g(z)$は$|z|	<	\min	(	\rho_1,	\rho_2)$
+で絶対収束する次のべき級数で表される：
+\[
+	f(z)g(z)	=	\sum_{n=0}^{\infty}	c_n	z^n	,	\quad	c_n	=	\sum_{k=0}^{n}	a_kb_{n-k}.
+\]
+
+\例{2.25}
+実関数の場合から考えて，累乗関数は次の性質を持つだろうと期待される．
+\begin{equation}
+	(1+z)^\alpha	(1+z)^\beta	=	(	1+	z)^{\alpha+	\beta}	\quad	(|z|	<	1).
+	\label{eq2x26}
+\end{equation}
+これは見かけほど当たり前ではない．実際，両辺の各べきの係数を比べれば
+(\ref{eq2x26})は一連の等式
+\[
+	\binom{\alpha}{0}\binom{\beta}{n}	+
+	\binom{\alpha}{1}\binom{\beta}{n-1}	+
+	\cdots	+
+	\binom{\alpha}{n}\binom{\beta}{0}
+	=
+	\binom{\alpha+\beta}{n}	
+	\quad	(n=0,1,2,\cdots)
+\]
+と同じ内容をもっているのだから，例題2.23を応用してこれを証明しよう．
+
+いま$f_\alpha(z)	=	(1+z)^\alpha$とおけば定理2.24によって積$g(z)	=	f_\alpha	(z)f_\beta(z)$は
+収束べき級数に展開できるが，さらに
+\begin{align*}
+	(1+z)	\frac{d}{dz}	(f_\alpha(z)	f_\beta(z))	
+	&=	\alpha	f_\alpha(z)	\cdot	f_\beta(z)	+	\beta	f_\alpha(z)	\cdot	f_\beta(z)	\\
+	&=	(\alpha	+	\beta	)	f_\alpha	(z)	f_\beta(z).
+\end{align*}
+すなわち$g(z)$は(\ref{eq2x25})で$\alpha$を$\alpha	+	\beta$とした方程式の解である．
+ゆえに$g(z)	=	c_0	(1+z)^{\alpha	+	\beta}$となり，$z=0$とおけば$c_0	=	1$であることがわかる．
+\□

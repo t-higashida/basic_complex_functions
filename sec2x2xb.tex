@@ -1,0 +1,182 @@
+\subsection{べき級数の微分}
+
+例2.2の(\ref{eq2x5})-(\ref{eq2x3})
+\begin{align*}
+		f_0(z)	&=	z	+	z^2	+	\cdots	+	z^n	+	\cdots	,		\tag{\ref{eq2x3}}	\\
+		f_1(z)	&=	\frac{z}{1}	+	\frac{z^2}{2}	+	\cdots	+	\frac{z^n}{n}	+	\cdots	,\tag{\ref{eq2x4}}	\\
+		f_2(z)	&=	\frac{z}{1^2}	+	\frac{z^2}{2^2}	+	\cdots	+	\frac{z^n}{n^2}	+	\cdots	,	\tag{\ref{eq2x5}}
+\end{align*}
+は$z$倍を除き順に項別に微分して得られる関係になっている($z	\cdot	f'_2(z)	=	f_1(z),	z	\cdot	f'_1(z)	=	f_0(z)$)が
+(囲いこみ記事参照），いずれも共通の収束半径$1$を持っていた．これは偶然ではなく，一般に成り立つ事実である．
+
+\定理{2.20}
+収束べき級数
+\begin{equation}
+	f(z)	=	a_0	+	a_1	z	+	a_2	z^2	+	\cdots	+	a_n	z^n	+	\cdots
+	\label{eq2x22}
+\end{equation}
+を\underline{項別に}微分して得られるべき級数を
+\[
+	f_1(z)	=	a_1	+	2	a_2	z	+	3	a_2	z^2	+	\cdots	+	n	a_n	z^{n-1}	+	\cdots
+\]
+とする．このとき
+\begin{list}{}{}
+	\item	（ⅰ）両者の収束半径は等しく，
+	\item	（ⅱ）さらに収束円の内部で，$	\displaystyle	\frac{d}{dz}	f(z)	=	f_1(z)	$
+\end{list}
+が成り立つ．
+
+\証明
+（ⅰ）$f(z),f_1(z)$の収束半径をそれぞれ$\rho,\rho_1$とする．明らかに
+\[
+	\frac{1}{\rho}	
+	=	\limsup_{n\rightarrow	\infty}
+			|a_n|^{1/n}
+	\leqq	\limsup_{n\rightarrow	\infty}	(n	|a_n|)^{1/n}
+	=
+	\frac{1}{\rho_1}
+\]
+である．一方$1/\rho_1$に収束する部分列$(n_k	|a_{n_k}|)^{1/n_k}$をとれば，
+$n_k^{1/n_k}	\rightarrow	1$であるから
+\[
+	\frac{1}{\rho_1}	=	\lim_{k\rightarrow	\infty}	|a_{n_k}|^{1/n_k}
+	\leqq
+	\limsup_{n\rightarrow	\infty}	|a_n|^{1/n}	=	\frac{1}{\rho}.
+\]
+したがって$\rho	=	\rho_1$となる．
+
+（ⅱ）収束円の中の点$z$を1つ固定して，$h$は十分小さい範囲にとり
+$|z|,|z|+|h|	<	R	<	\rho$を満たす$R$と
+\[
+	|a_n|	\leqq	\frac{M}{R^n},
+\]
+となるように$M$を選んでおこう．素直に差をとって
+\begin{equation}
+	\left|	\frac{f(z+h)-f(z)}{h}	-f_1(z)
+	\right|
+	=
+	\sum_{n=0}^{\infty}
+		|a_n|	\left|\frac{(z+h)^n	-	z^n}{h}	-n	z^{n-1}	\right|
+	\label{eq2x23}
+\end{equation}
+が$0$に近づくことを示す．2項定理により
+\begin{align*}
+	\left|\frac{(z+h)^n	-z^n}{h}	-	n	z^{n-1}	\right|
+	&=
+	\left|	\frac{1}{h}
+		\left(
+			\sum_{k=0}^{n}	\binom{n}{k}h^{k}z^{n-k}	-z^n
+		\right)
+		-nz^{n-1}
+	\right|	\\
+	&=
+	\left|	\frac{1}{h}
+		\left(
+			\sum_{k=1}^{n}	\binom{n}{k}h^{k}z^{n-k}
+		\right)
+		-nz^{n-1}
+	\right|	\\
+	&=
+	\left|	\frac{1}{h}
+		\left(
+			\sum_{k=2}^{n}	\binom{n}{k}h^{k}z^{n-k}
+		\right)
+	\right|	\\
+	&=
+	\left|	\sum_{k=2}^{n}	\binom{n}{k}h^{k-1}	z^{n-k}
+	\right|	\\
+	&	\leqq
+					\sum_{k=2}^{n}	\binom{n}{k}	|h|^{k-1}	|z|^{n-k}	\\
+	&=
+		\frac{(|z|+|h|)^n	-	|z|^n}{|h|}	-	n|z|^{n-1}
+\end{align*}
+が得られる．ここで
+\[
+	F(x)	=	\sum_{n=0}^{\infty}	\frac{M}{R^n}	x^n
+				=	\frac{M}{1-(x/R)}	\quad	(|x|<R)
+\]
+とおけば，
+\begin{align}
+	\text{(\ref{eq2x23})の右辺}
+	&\leqq	\sum_{n=0}^{\infty}
+		\frac{M}{R^n}	\left(
+										\frac{(|z|+|h|)^n-|z|^n}{|h|}	-	n	|z|^{n-1}
+									\right)	\notag	\\
+	&=	\frac{F(|z|+|h|)	-	F(|z|)}{|h|}	-	\frac{dF}{dx}	(|z|).
+	\label{eq2x24}
+\end{align}
+ただし
+\[
+	\sum_{n=0}^{\infty}	\frac{M}{R^n}	n	x^{n-1}	=	\frac{M/R}{(1-(x/R))^2}	=	\frac{dF}{dx}
+\]
+となることを用いた（保留）．$F(x)$は実関数として微分可能だから，$h	\rightarrow	0$の極限で
+(\ref{eq2x24})の右辺は$0$に近づく．
+\■
+
+
+\系{2.21}
+収束べき級数(\ref{eq2x22})は収束円の内部で何回でも微分可能である．
+また収束円の中で原始関数を持つ：
+\begin{align*}
+	F(z)	&=	c	+	a_0	\frac{z}{1}	+	a_1	\frac{z^2}{2}+	a_2	\frac{z^3}{3}	+	\cdots	+	,	\\
+	F'(z)	&=f(z)
+\end{align*}
+ここに$c$は任意の定数.
+\□
+
+べき級数を繰り返し微分して$z=0$とおけば，
+\[
+	f^{(n)}(0)	=	n!	a_n	\quad	(n=0,1,2,\cdots)
+\]
+が得られる．このことから，展開の係数$a_n$は関数$f(z)$によってただ一通りに決まっている
+ことがわかる．当然のことのようだが，大事な事実なので，定理の形に述べておこう．
+
+\定理{2.22}
+（べき級数展開の一意性）
+共通の円板$|z|	<	R$で収束する2つのべき級数
+\begin{align*}
+	f(z)	&=	a_0	+	a_1	z	+	a_2	z^2	+	\cdots	+	a_n	z^n	+	\cdots,	\\
+	g(z)	&=	b_0	+	b_1	z	+	b_2	z^2	+	\cdots	+	b_n	z^n	+	\cdots,
+\end{align*}
+が関数として一致する（すなわち$f(z)=g(z)$が$|z|	<	R$で成り立つ）ならば，
+べき級数展開の係数はすべて等しい：$a_n	=	b_n	\:	(n=0,1,2,	\cdots)$．
+\□
+
+微分を計算するには，原点の近傍全t内でなくとも例えば実軸の正の方向だけを
+使っても十分であるから，もっとも緩い条件（例えば$f(x)	=	g(x)$が十分小さい
+$x>0$で成り立つ）でも同じ結論が得られる．後述の一致の定理2.38を参照.
+
+\例題{2.23}
+\begin{equation}
+	(1+z)	\frac{dy}{dz}	=	\alpha	y
+	\label{eq2x25}
+\end{equation}
+の収束べき級数解
+$y	=	\sum_{n=0}^{\infty}	c_n	z^n$をすべて求めよ．
+
+
+\解
+微分方程式に代入して項別微分すれば
+\[
+	(1+z)	\sum_{n=1}^{\infty}	n	c_n	z^{n-1}	=	\alpha \sum_{n=0}^{\infty}	c_n	z^n
+\]
+を得る．係数の一意性（定理2.22）から$z^n$の係数を等しいとおくことができて
+\[
+	(n+1)	c_{n+1}	=	(\alpha	-	n)c_n	\quad	(n=0,1,2,\cdots).
+\]
+この漸化式を解けば$\displaystyle	c_n	=\binom{\alpha}{n}	c_0$を得る．
+ゆえに
+\[
+	y=c_0	\sum_{n=0}^\infty	\binom{\alpha}{n}	z^n	=	c_0	(1+z)^\alpha
+	\quad	(c_0	\text{は任意定数})
+\]
+\■
+
+\問{5}
+項別微分によって次の式を確かめよ．
+\begin{align*}
+	&\frac{d}{dz}	e^z	=	e^z,	\frac{d}{dz}	\sin	z	=	\cos	z,	\frac{d}{dz}	\cos	z	=	-	\sin	z,	\\
+	&\frac{d}{dz}	\log	(1+z)	=	\frac{1}{1+z}
+\end{align*}
+\解　
+(保留)

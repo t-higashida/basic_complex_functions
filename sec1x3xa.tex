@@ -1,0 +1,97 @@
+\section{極限}
+複素関数の微分積分について論じるための準備として，
+複素数の数列や級数の収束に関して基本的な事実をまとめておきたい．
+より詳しい説明はこのシリーズの『現代解析学への誘い』に述べられている．
+\subsection{数列の極限}
+\定義{1.5}
+複素数の列$\{\alpha_n\}_{n=1}^\infty$が$\alpha$に\textbf{収束}(converge)するとは，
+距離$|\alpha_n	-	\alpha|$が限りなく$0$に近づくことと定める．すなわち
+\[
+	\lim_{n\rightarrow	\infty}	\alpha_n	=	\alpha	\Longleftrightarrow
+	\lim_{n\rightarrow	\infty}	|\alpha_n	-	\alpha	|=0
+\]
+と定義する．
+\□
+「微分と積分１｣では，収束しない実数列は「振動」と「発散」に区別された．
+本書では収束しない複素数列は一律に\textbf{発散}(diverge)するということにする．
+
+いま$\alpha_n	=	a_n	+	ib_n,	\alpha	=	a+	ib$と書くと，三角不等式により
+\[
+	|a_n	-	a|	,	|b_n	-	b|	\leqq	|\alpha_n	-	\alpha|	\leqq	|a_n	-	a|	+	|b_n	-	b|.
+\]
+しがたって，複素数列$\{\alpha_n\}_{n=1}^\infty$の収束は，
+その実部，虚部からなる実数列
+$\{a_n	\}_{n=1}^\infty$，$\{b_n	\}_{n=1}^\infty$がそれぞれ収束すること
+\[
+	\lim_{n\rightarrow	\infty}	a_n	=	a	\quad	\text{かつ} 
+	\lim_{n\rightarrow	\infty}	b_n=	b
+\]
+と同じ内容になる．この注意から，次の性質は対応する実数列の性質に帰着させて
+確かめることができる．
+
+\命題{1.6}
+$\{\alpha	_	n	\}_{n=1}^\infty,	\{\beta	_	n	\}_{n=1}^\infty$が収束列ならば，
+\begin{align*}
+	&\lim_{n\rightarrow	\infty}(\alpha_n	\pm	\beta_n)	=	\lim_{n\rightarrow	\infty}	\alpha_n	\pm	\lim_{n\rightarrow	\infty}\beta_n,	\\
+	&\lim_{n\rightarrow	\infty}	\gamma	\alpha_n	=	\gamma	\lim_{n\rightarrow	\infty}	\alpha_n	\\
+	&\lim_{n\rightarrow	\infty}(\alpha_n	\beta_n)	=	\lim_{n\rightarrow	\infty}	\alpha_n	\lim_{n\rightarrow	\infty}\beta_n,	\\
+	&\lim_{n\rightarrow	\infty}\frac{\alpha_n}{	\beta_n}		=	\frac{\displaystyle	\lim_{n\rightarrow	\infty}	\alpha_n}{\displaystyle	\lim_{n\rightarrow	\infty}\beta_n}
+	\quad (\lim_{n\rightarrow	\infty}	\beta_n	\ne	0	\:	\text{のとき})
+\end{align*}
+\□
+
+点列$\{z_n\}$が次の条件を満たすとき，\textbf{Cauchy列}であるという．
+\begin{list}{}{}
+ \item (A) $\displaystyle \lim_{k \rightarrow \infty} \sup_{m,n \geq k} | z_n-z_m| = 0$．
+           この条件を\[ \lim_{n\rightarrow \infty m, \rightarrow \infty} | z_n - z_m| =0\]と書く．
+この条件は次のようにも表せる（同値である）．
+ \item (B) $\forall \varepsilon > 0, \exists n_0 \in \N, n_0 \leqq n,m \Rightarrow |z_n - z_m| < \varepsilon$
+\end{list}
+\証明
+(1) $\displaystyle \lim_{k \rightarrow \infty} \sup_{m,n \geq k} |z_m - z_n|=0$と仮定する．
+$\sup_{m,n \geq k } |z_m - z_n|= \theta(k)$とおく．このとき上限の性質により，
+\[
+  m,n \geqq k \Rightarrow |z_m - z_n| \leqq \theta(k)
+\]
+であるので，仮定より
+\begin{align*}
+	& \forall \varepsilon > 0, \exists k_0 \in \N , k \geqq k_0 \Rightarrow \theta(k) < \varepsilon \\
+  & \Rightarrow \\
+  & m,n \geqq k \Rightarrow |z_m - z_n| \leqq \theta(k) < \varepsilon
+\end{align*}
+したがって(B)を満たす．
+
+(2)逆に(B)$\forall \varepsilon > 0, \exists n_0 \in \N, m,n \geqq n_0 \Rightarrow |z_m -z_m| < \varepsilon$
+と仮定する．$\displaystyle \lim_{k \rightarrow \infty} \theta (k) =0$が成立しないと仮定すると，
+\[
+ \exists \varepsilon_0 > 0 , \forall k \in \N, \exists k_0 \geqq k , \theta ( k) \geqq \varepsilon_0
+\]
+となる．すなわち
+\[
+	\sup_{n,m \geq k} |z_n - z_m| = \theta (k) \geqq \varepsilon_0
+\]
+となり，上限の性質より
+\[
+  \exists n_0, \exists m_0 \geqq k \geqq k_0, \: | z_{n_0} - z_{m_0} | > \frac{\varepsilon_0}{2}
+\]
+これは仮定の(B)に反する．したがって$\displaystyle \lim_{k \rightarrow \infty} \theta (k) =0$.
+\■
+
+収束列$\alpha_1,	\alpha_2,	\alpha_3,	\cdots$を平面に描き込んでいくと，はじめはばらついていても，
+$n$が大きくなるにつれて$\alpha_n$は極限$\alpha$の近くに集中していく．このとき
+三角不等式$|\alpha_N	-	\alpha_{N+p}|	\leqq	|\alpha_N	-	\alpha|	+	|\alpha	-	\alpha_{N+p}|$
+からわかるように，第$N$項から先の誤差の振れ方$\sup_{p>0}|	\alpha_N	-	\alpha_{N+p}|$は
+$N$を大きくとればいくらでも小さく絞れる．より重要なのは，その性質から逆に（極限値自身はわからなくても）
+極限の存在を結論できることである．すなわち
+
+\定理{1.7}
+（Cauchyの判定条件）
+複素数列$\{\alpha_n\}_{n=1}^\infty$が収束するための必要十分条件は，
+\begin{equation}
+	\lim_{N\rightarrow	\infty}	\sup_{p>0}	|\alpha_N	-	\alpha_{N+p}|	=	0
+	\label{eq1x8}
+\end{equation}
+が成り立つ($\{z_n\}$がCauchy列である)ことである．
+\□
+複素数体の\textbf{完備性}（completeness）とも呼ぶこの事実も，対応する実数の性質
+に帰着して示される．

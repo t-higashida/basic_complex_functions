@@ -1,0 +1,126 @@
+\section{複素平面}
+
+\subsection{座標による表示}
+
+さて，実数は数直線の上の点として表すことができた．これに対し，
+複素数$\alpha	=	a	+	ib$は実数の組$(a,b)$で決まっているのだから，これを座標平面の点$(a,b)$によって
+表示することができ，$\C$と$\R^2$は1対1に（上へ）対応する．
+２つの複素数$z_1 = x_1 + i y_1$と$z_2 = x_2 + iy_2$が等しい$z_1 = z_2$とは言わずもがな
+$x_1 = x_2$かつ$y_1=y_2$が成り立つことである．
+
+こうすると複素数は目に見えて，実在感を増す．
+
+複素数を表示する座標平面を\textbf{複素数平面}（本書では\textbf{複素平面}，complex plane)，
+ガウス平面などといい，横、縦の座標軸をそれぞれ\textbf{実軸}（real axis），
+\textbf{虚軸}(imaginary axis)とよぶ．座標表示では，$\alpha	=	a	+	ib$をあらわす点の横，
+縦の座標$a,b$がそれぞれ実部，虚部に，その原点からの距離が絶対値$|\alpha|$に対応する．
+また実軸に関して折り返した点が複素共役$\overline{\alpha}$を表している
+(図1.1参照）．今後，複素数全体の集合$\C$を複素平面と見なし，実数全体の集合$\R$はその中の
+実軸と見る．
+
+複素平面を使うと，四則演算も視覚的になってわかりやすい．いま$z=x+iy$が表す点を$P$とし，
+原点$O$から$P$へ向かうベクトルを
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[bb=0 0 800 600,clip,width=6cm,height=5cm]{fig1x1.bmp}
+	\caption{複素数の表示}
+	\label{fig1x1}
+\end{figure}
+\begin{equation}
+	\overrightarrow{OP}=\begin{pmatrix}
+												x	\\
+												y
+											\end{pmatrix}
+	\label{eq1x4}
+\end{equation}
+と表そう
+すると複素数の足し算はベクトルの和に，実数$a$による掛け算はベクトルのスカラー倍
+$a	\overrightarrow{OP}$にそれぞれ対応していることがわかる（$\C$と$\R$は同型である）．
+\begin{align*}  
+  z + z' = (x+x') + i(y+y') &\Leftrightarrow
+	\begin{pmatrix}
+		x	\\
+		y
+	\end{pmatrix}
+	+
+	\begin{pmatrix}
+		x'	\\
+		y'
+	\end{pmatrix}
+	=
+		\begin{pmatrix}
+		x	+	x'\\
+		y	+	y'
+	\end{pmatrix}, \\
+  az = ax + i(ay) &\Leftrightarrow
+	a
+	\begin{pmatrix}
+		x	\\
+		y		
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		ax	\\
+		ay		
+	\end{pmatrix}
+	\quad (a \in \R)
+\end{align*}
+特に，$-1$を掛けるということは，ちょうど$\overline{OP}$の向きを反対にしたベクトル
+$-\overrightarrow{OP}$を考えることに当たっている．また$z$から$w$へ向かうベクトルは，
+$z$を加えて$w$となる複素数，すなわち$w-z$に対応している．
+\begin{figure}[hbtp]
+		\centering	
+		\includegraphics[bb=0 0 800 600,clip,width=13cm,height=6cm]{fig1x2.bmp}	
+		\caption{和と積の表示}
+		\label{fig1x2}	
+\end{figure}
+\例{1.2}
+2点$z$と$w$を結ぶ線分は$(1-t)z+	tw	\:	(0	\leqq	t	\leqq	1)$で表される．
+\□
+これに対して，$i$を掛けるという演算$i(x+iy)	=	-y	+	ix$は，ベクトルの言葉でいうと
+(\ref{eq1x4})を反時計回りに90ﾄ度回転することにあたっている（図\ref{fig1x2})参照．
+行列の言葉で書けば
+\[
+	\begin{pmatrix}
+		x	\\
+		y
+	\end{pmatrix}
+	\mapsto
+	\begin{pmatrix}
+		-y	\\
+		x
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		0	&	-1	\\
+		1	&	0
+	\end{pmatrix}
+	\begin{pmatrix}
+		x	\\
+		y
+	\end{pmatrix}	
+\]
+である．これを2度繰り返せば$\overrightarrow{OP}$は180度回転されて$-\overrightarrow{OP}$
+になる．それが$i^2=-1$の表す幾何学的内容である．もっと一般に，$\alpha=a+ib$による
+掛け算は，行列表示によって
+\[
+	\begin{pmatrix}
+		x	\\
+		y
+	\end{pmatrix}
+	\mapsto
+	\begin{pmatrix}
+		ax-by	\\
+		bx+ay
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		a	&	-b	\\
+		b	&	a
+	\end{pmatrix}
+	\begin{pmatrix}
+		x	\\
+		y
+	\end{pmatrix}
+\]
+と表される．\textbf{複素数体の構成}に出てきた行列は，この式に由来している．

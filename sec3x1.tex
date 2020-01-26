@@ -1,0 +1,176 @@
+\chapter{複素関数の微分と積分}
+
+これまでべき級数だけを扱ってきたが，この章で改めて一般の複素関数と
+その微分積分について考えたい．複素関数の微分可能性は，
+見かけより深い内容を持っている．それは単なる滑らかさの条件だけでなく，
+実部・虚部に対する微分方程式で表される．ついでに複素積分を
+定義し，関数論でもっとも重要なコーシーの積分定理を解説する．
+
+\section{複素変数の関数}
+
+\subsection{一般の複素関数}
+
+複素関数とは，ともかく複素数$x + iy$に対して複素数の値
+$u + iv $を対応させる関数であるから，
+\[
+	f(z) = u(x,y) + iv(x,y) \quad (z= x+iy)
+\]
+と表示されるはずである．実部$u(x,y)$, 虚部$v(x,y)$は実2変数の実数値関数である．
+
+\例{3.1}
+$f(z) = \overline{z} = x - iy, \quad
+ f(z) = x^2 + i (x+y), \quad
+ f(z) = \sin |z|$.
+
+\例{3.2}
+例えば$f(z) = x^2 + i(x+y)$に
+\begin{equation}
+  x=\frac{z + \overline{z}}{2}, \quad
+  y=\frac{z - \overline{z}}{2i}
+\label{eq3x1}
+\end{equation}
+を代入して整理すれば
+\begin{align*}
+	f(z)&=   \left(	\frac{z + \overline{z}}{2}\right)^2
+         + i \left(	\frac{z + \overline{z}}{2} + \frac{z - \overline{z}}{2i} \right) \\
+      &= \frac{1}{4} z^2 + \frac{1}{2} z \overline{z} + \frac{1}{4} \overline{z}^2
+                         + i \left( \frac{z+\overline{z}}{2} \right) 
+                         + i \left( \frac{z-\overline{z}}{2i} \right)\\
+      &= \frac{1}{4} z^2 + \frac{1}{2} z \overline{z}
+                         + \frac{1}{4} \overline{z}^2
+                         + \frac{1}{2} (i+1)z
+                         + \frac{1}{2} (i-1) \overline{z}	
+\end{align*}
+と書ける．同様にして
+\[
+	u(x,y) = \sum_{j,k=0}^N u_{jk}x^j y^k, \quad
+	v(x,y) = \sum_{j,k=0}^N v_{jk}x^j y^k  \quad
+  (u_{jk},v_{jk} \in \R)
+\]
+が2変数$x,y$の多項式ならば，$f(z)$は複素数を係数とする2変数の多項式
+$P(X,Y)$によって
+\begin{equation}
+	f(z) = P(z,\overline{z}) = \sum_{j,k=0}^N a_{jk} z^j \overline{z}^k
+  \quad ( a_{ik} \in \C)	
+  \label{eq3x2}
+\end{equation}
+の形に書くことができる．すこし紛らわしいが，第2章であつかった「多項式」
+は$\overline{z}$を含まない$\displaystyle \sum_{j=0}^N a_j z^j$のという特別な場合であった．
+
+
+複素関数の偏微分は，実部・虚部ごとに
+\[
+	\frac{\partial }{\partial x} f(z) 
+    =   \frac{\partial}{\partial x} u(x,y)
+     + i\frac{\partial}{\partial x} v(x,y), \quad
+	\frac{\partial }{\partial y} f(z) 
+    =   \frac{\partial}{\partial y} u(x,y)
+     + i\frac{\partial}{\partial y} v(x,y)
+\]
+と定める．また，記号$ \displaystyle \frac{\partial }{\partial x}$によって
+$f(z)$に$\displaystyle \frac{\partial}{\partial x}f(z)$を対応させる
+写像を表すことする．$\displaystyle \frac{\partial }{\partial y}$
+なども同様である．
+
+一般の複素関数を与えるということは，実数値2変数の組
+$u(x,y),v(x,y)$を与えることであってそれ以上でも
+それ以下でもない．それなら改めて複素関数論などやるまでも
+ないようだが，複素関数として微分可能な関数を扱うところに
+に新しい内容が生じるのである．
+
+\subsection{微分記号 $\partial / \partial z,\:$$\partial / \partial \overline{z}$}
+
+$z = x + iy$が決まれば$\overline{z} = x - iy$も決まっていて，
+この両者は決して独立変数と言うわけでなないのだが，
+$x,y$を扱うより$z,\overline{z}$で書く方が見通しがよくなることが
+多い．いまあたかも$z,\overline{z}$が独立変数であるかのように見なし
+て(\ref{eq3x1})に形式的に微分法の変数変換の公式（本シリーズ『微分と積分2』
+第3章）を適用すると，
+\begin{equation}
+	\frac{\partial }{\partial z} = \frac{1}{2}
+  \left(
+     \frac{\partial}{\partial x} - i \frac{\partial}{\partial y}
+  \right),
+  \quad
+	\frac{\partial }{\partial \overline{z}} = \frac{1}{2}
+  \left(
+     \frac{\partial}{\partial x} + i \frac{\partial}{\partial y}
+  \right),	
+\label{eq3x3}
+\end{equation}
+が得られるだろう．そこで，
+この右辺をもって記号$\partial / \partial z , \: \partial / \partial \overline{z}$
+の定義とする．($z$を固定して$\overline{z}$で微分するとはいかなる意味か，
+などと考え出すとわからなくなる．単に記号の便宜であると割り切った方が良い，
+この記号の利便性は後々感じられるだろう．）
+例えば，$f(z) = u+iv$に$\partial / \partial z$,$\partial / \partial \overline{z}$
+を施すと
+\begin{align}
+	  \frac{\partial }{\partial z} f(z)
+&=  \frac{1}{2} \left(
+                  \frac{\partial}{\partial x} - i \frac{\partial}{\partial y}
+                \right) (u+iv) \notag\\ 
+&= \frac{1}{2}  \left(
+                  \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y}
+                \right)
+  -i\frac{1}{2}  \left(
+                  \frac{\partial u}{\partial y} - \frac{\partial v}{\partial x}
+                \right) \label{eq3x4}\\
+	  \frac{\partial }{\partial \overline{z}} f(z)
+&=  \frac{1}{2} \left(
+                  \frac{\partial}{\partial x} + i \frac{\partial}{\partial y}
+                \right) (u+iv) \notag\\ 
+&= \frac{1}{2}  \left(
+                  \frac{\partial u}{\partial x} - \frac{\partial v}{\partial y}
+                \right)
+  +i\frac{1}{2}  \left(
+                  \frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}
+                \right)
+\label{eq3x5}
+\end{align}
+などとなる．とくに$f(z)=z,\overline{z}$にあてはめると
+\begin{equation}
+	\frac{\partial z}{\partial z} = 1, \quad
+  \frac{\partial \overline{z}}{\partial z} = 0, \quad
+  \frac{\partial z}{\partial \overline{z}} = 0, \quad
+  \frac{\partial \overline{z}}{\partial \overline{z}} = 1
+\label{eq3x6}
+\end{equation}
+したがって，(\ref{eq3x2})の多項式$P(z,\overline{z})$を微分するには
+$z,\overline{z}$を独立変数と思って$\partial / \partial z, \: \partial / \partial \overline{z}$
+を作用させればよい．
+
+なお，次の関係に注意しておこう．
+\begin{equation}
+	\overline{ \left(
+               \frac{\partial f}{\partial z} (z)
+             \right)
+  }
+  = \frac{\partial}{\partial \overline{z}}
+   \left(
+      \overline{f(z)}
+   \right) 
+\label{eq3x7}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+（以下，保留）

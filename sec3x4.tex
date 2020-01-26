@@ -1,0 +1,493 @@
+\section{コーシーの積分定理}
+
+\subsection{グリーンの公式}
+一般の$C^1$級の関数$f(z)$を例題3.17(１)の長方形に沿って積分してみよう．
+このとき
+\[
+	\int_{C_1} f(z) dz = \int_0^a f(x) dx, \quad
+	\int_{C'_1} f(x+ib) dz = \int_0^a f(x+ib) dx 
+\]
+より，
+\begin{align*}
+	\int_{C_1} f(z) dz - \int_{C'_1} f(z) dz
+  &= \int_0^a (f(x) - f(x+ib))dx \\
+  &= \int_0^a \left(
+                 \int_0^b
+                    \left(
+                       -\frac{\partial }{\partial y} f(x+iy) \
+                    \right) dy
+              \right)dx.
+\end{align*}
+同様にして
+\begin{align*}
+	\int_{C_2} f(z) dz - \int_{C'_2} f(z) dz
+&=\int_{a}^{a+ib} f(z) dz - \int_{0}^{ib} f(z) dz \\
+&= \int_0^b (f(a+iy) - f(iy))idy \\
+&= \int_0^b \left(
+                 \int_0^a
+                    \left(
+                       \frac{\partial }{\partial x} f(x+iy) \
+                    \right) dx
+              \right)idy.
+\end{align*}
+ゆえに，長方形を$\cal {D}$，その周囲（正の向きをつけたもの）を
+$C$で表せば
+\begin{align}
+	\int_C f(z) dz 
+  &= \int_0^a \int_0^b 
+        \left(-\frac{\partial }{\partial y}
+           f(x+iy) dy
+        \right) dx
+   + \int_0^a \int_0^b 
+        \left(\frac{\partial }{\partial x}
+           f(x+iy) dy
+        \right) dx \notag\\
+  &= \int_0^a \int_0^b 
+    \left(
+       \frac{\partial}{\partial x} + i \frac{\partial }{\partial y} 
+    \right)f(x+iy) dx idy \notag\\
+  &=
+  2i \int\int_{\cal D} \frac{\partial }{\partial \overline{z}} f(z) dxdy	
+\label{eq3x20}
+\end{align}
+が成り立つ．
+
+もう少し一般に，図\ref{fig3x3}のようにいくつかの（例えば3つの)
+長方形${\cal D}_i$に分割出来る領域を考えよう．
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[bb=0 0 800 200,clip,width=6cm,height=6cm]{fig3x3.bmp}
+	\caption{長方形領域の合併}
+	\label{fig3x3}
+\end{figure}
+明らかに
+\[
+	\int\int_{\cal D} \frac{\partial}{\partial \overline{z}} f(z) dxdy
+  =
+  \sum_{i=1}^3 \int\int_{{\cal D}_i} \frac{\partial }{\partial \overline{z}}f(z) dxdy
+\]
+である．一方小長方形の周を$C_i$とすれば，それらに沿った積分の和のうち，
+重なっている辺での積分は向きが逆だから互いに打ち消しあい，
+\[
+	\int_C f(z) dz = \sum_{i=1}^3 \int_{C_i} f(z) dz.
+\]
+この2つの式を見比べれば，(\ref{eq3x20})は長方形を合併した領域
+$\cal D$とその周囲$C$についても同じように成り立っていることがわかる．
+
+さらに一般に，有限個の単純な閉曲線によって囲まれた領域
+$\cal D$を考えよう．$\cal D$を囲む曲線(の合併集合)を
+$\partial {\cal D}$という記号で表し，$\cal D$の境界という．
+これには$\cal D$の内部を左手にみるような向きを付ける．
+（図(\ref{fig3x4})のように領域には「穴」があいているかもしれない．
+穴の周囲の曲線の向きに注意しよう．）
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[bb=0 0 800 200,clip,width=6cm,height=6cm]{fig3x4.bmp}
+	\caption{領域とその長方形による近似}
+	\label{fig3x4}
+\end{figure}
+上の状況において，$\cal D$を有限個の長方形の合併によってどんどん近似していけば，
+ついには長方形の場合と同じ形の公式が成り立つと期待してよいだろう．
+すなわち次の定理が成り立つ．
+
+\定理{3.18}
+（グリーン（Green）の公式）
+領域$\cal D$の境界$\partial {\cal D}$は区分的に滑らかな有限個の曲線
+からなるとし，正の向きを付ける．
+関数$f(z) = u(x,y)+iv(x,y)$は${\cal D} \cup \partial {\cal D}$を含む領域で
+$C^1$級と仮定する．このとき
+\[
+	\int_{\partial {\cal D}} f(z) dz = 2i \int\int_{\cal D} \frac{\partial f}{\partial \overline{z}} dxdy.
+\]
+\□
+
+この定理でとくに$f(z) = \overline{z}$ととれば，予期した関係が得られる：
+
+\系{3.19}
+同じ仮定のもとに
+\[
+	\int_{\partial {\cal D}} \overline{z} dz = 2 i \times \text{($\cal D$の面積)}.
+\]
+\証明
+上のように長方形で近似するという考え方でも証明できるが，
+きちんと実行するにはすこし準備が必要になる．ここでは実質的には
+同じ内容の，微積分におけるグリーンの公式（本シリーズ『微分と積分2』第5章）
+に帰着できることを示すに留めよう．
+
+\textbf{グリーンの公式}
+
+$U(x,y),V(x,y)$が$C^1$級の関数であるとき，
+\[
+	\int_{\partial {\cal D}} (Udx + V dy)
+  =
+  \int\int_{\cal D} \left(
+                      -\frac{\partial U}{\partial y} + \frac{\partial V}{\partial x}
+                    \right)dxdy.
+\]
+さて，$f(z) = u(x,y) + iv(x,y)$ならば，
+\begin{align*}
+	 \int_{\partial {\cal D}} f(z) dz 
+&= \int_{\partial {\cal D}} (u(z) + iv(z))(dx + i dy) \\
+&= \int_{\partial {\cal D}} (udx - vdy) 
++ i \int_{\partial {\cal D}} (u dy + v dx) \\.	
+\end{align*}
+この右辺にグリーンの公式を適用すれば
+\begin{align*}
+	&\int\int_{\cal D} 
+   \left( - \frac{\partial u}{\partial y} - \frac{\partial v}{\partial x}
+   \right)dxdy
+  +i
+	\int\int_{\cal D} 
+   \left( - \frac{\partial v}{\partial y} + \frac{\partial u}{\partial x}
+   \right)dxdy \\
+ &=
+   \int\int_{\cal D} i \left(
+                     \frac{\partial }{\partial x} + i\frac{\partial }{\partial y}
+                   \right)
+                   (u + iv)dxdy \\
+ &=
+  2i \int\int_{\cal D} \frac{\partial }{\partial \overline{z}} f(z) dx dy.
+\end{align*}
+
+\subsection{コーシーの積分定理}
+グリーンの公式を$f(z)$が正則関数である場合に当てはめると，
+コーシー-リーマンの方程式
+\[
+	\frac{\partial u}{\partial x}(x,y)
+  =
+  \frac{\partial v}{\partial y}(x,y),
+  \quad
+  \frac{\partial u}{\partial y}(x,y)
+  =
+ -\frac{\partial v}{\partial x}(x,y)
+\]
+から初等関数論において最も重要な次の定理が
+得られる．
+
+\定理{3.20}
+(コーシーの積分定理)
+$f(z) = u(x,y) + iv(x,y)$が${\cal D} \cup \partial {\cal D}$を
+含む領域で正則であれば
+\[
+	\int_{\partial {\cal D}} f(z) dz = 0.
+\]
+\footnote{ \small
+実関数の積分の性質	$\displaystyle	\int_a^a	f(x)	dx	=0$のアナロジー．
+}
+\□
+
+伝統的な記号にならい，今後は単純閉曲線$C$に沿っての積分を，
+1周積分するという気持ちで
+\[
+	\oint_C f(z) dz
+\]
+と書くことにしよう．ただしこの記号を使うときはいつも$C$に
+\textbf{正の向き}（$C$の内部にを左手に見る向き）をつける
+ものと約束する．$C$が円周のときは
+\[
+	\oint_{|z - a| = R} f(z) dz
+\]
+などと書く．
+
+個シーの積分定理から，$f(z)$が正則である範囲においては積分路を
+自由に変形してよいことがわかる(\textbf{積分経路変形の原理}).
+
+\例{3.21}
+ある点から別の点にいたる2通りの曲線$C_1,C_2$に対して，
+閉曲線${C_2}^{-1} C_1$の\textbf{内部と周囲を含む領域で}
+$f(z)$が正則であるならば，
+\begin{equation}
+	\int_{C_1} f(z) dz = \int_{C_2} f(z) dz.
+\label{eq3x21}
+\end{equation}
+\□
+
+\例{3.22}
+$|z-c| \leqq R$を含む領域で開円板内の1点$a$を例外として
+正則な関数$f(z)$があるとする．このとき点$a$のまわりに
+$|z-c| < R$に含まれるように小さい円
+$|z-a| = \varepsilon$をとれば（図\ref{fig3x5})
+\[
+	\oint_{|z-c| = R} f(z) dz = \oint_{|z-a|=\varepsilon} f(z)dz.
+\]
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[bb=0 0 800 200,clip,width=10cm,height=4cm]{fig3x5.bmp}
+	\caption{積分路の変形}
+	\label{fig3x5}
+\end{figure}
+実際，それぞれの円周（正の向き）を
+$C_R :  | z-c|=R, \:
+ C_\varepsilon :  |z-a| = \varepsilon$とし，
+図の灰色の領域を$\cal D$とすれば，$\cal D$を左手に見る向きを
+つけた境界$\partial D$は$C_R$と${C_\varepsilon}^{-1}$とからなるので
+\[
+	0 = \int_{\partial {\cal D}} f(z) dz 
+    = \oint_{|z-c|=R} f(z) dz - \oint_{|z-a| = \varepsilon} f(z) dz.
+\]
+あるいは，右の図のように領域にいったん切れ目を入れた曲線を
+考えてコーシーの積分定理を適用してもよい．
+\□
+
+積分路を変形する際には，もちろん被積分関数が「内部全体で正則」
+という条件が大事であって，１点でも正則でない点があると変形は
+必ずしも許されるなくなる．
+
+\例題{3.23}
+$n$を整数とすれば
+\begin{equation}
+	\oint_{|z-a|=r} (z-a)^n dz =
+  \begin{cases}
+		\: 2\pi i & \text{($n=-1$のとき)} \\
+		\: 0      & \text{(それ以外のとき)}
+	\end{cases}
+\label{eq3x22}
+\end{equation}
+\解
+$n \geqq 0$ならば$(z-a)^n$は正則関数だから，
+結果が$0$であることははじめから明らか．
+$n<-1$であると$z=a$では正則
+\footnote{\定義{3.5}
+}でなくなるから
+この論法は使えない．
+$z= a + r e^{i \theta}$とおき，定義に戻って計算してみると
+\begin{align*}
+	\oint_{|z-a|=r} (z-a)^n dz 
+ &= \int_0^{2\pi} r^ne^{in\theta} ri e^{i \theta} d \theta \\
+ &= i r^{n+1} \int_0^{2\pi} e^{(n+1) i \theta} d \theta.
+\end{align*}
+ここで$n+1=0$ならば右辺は明らかに$2\pi i$を与える．
+また$n+1 \ne 0$ならば
+\begin{align*}
+	\int_0^{2\pi} e^{(n+1)i \theta} d \theta
+&= \int_0^{2\pi}  \frac{1}{i(n+1)} \frac{d }{d \theta} (e^{(n+1) i \theta}) d \theta \\
+&= \frac{1}{i (n+1)} \left[ e^{(n+1)i \theta} \right]_0^{2 \pi}
+=0.	
+\end{align*}
+
+積分の値は半径$r$によらないことを注意しよう．
+これは積分路変形の原理(例3.22)からあらかじめ期待されることである．
+
+\subsection{積分路変形の応用}
+実際には複素積分において円と直線以外の場合に曲線のパラメータ
+表示を用いて計算を実行することはほとんどない．
+単純閉曲線に沿う積分は，たいていの場合，
+\begin{list}{}{}
+	\item	(ⅰ) 積分路の変形
+	\item (ⅱ) $(z-a)^n$の積分(\ref{eq3x22})
+\end{list}
+を組み合わせることで計算できる．
+
+\例題{3.24}
+
+楕円$C : x^2 / 4 + y^2 =1$に対して
+\[
+  \oint_C \frac{2z}{z^2 -1}\frac{d z}{2 \pi i}	
+\]
+を計算せよ．
+
+\解
+正直に$x = 2 \cos \theta,\: y= \sin \theta$を代入して積分しようとすると
+\[
+	\int_0^{2 \pi} \frac{2 (2 \cos \theta + i \sin \theta)}{2 \cos \theta + i \sin \theta)^2 -1}
+  \times
+  \frac{(-2 \sin \theta + i \cos \theta}{2 \pi i} d \theta
+\]
+となって大変複雑である．そこで，その代わりに，いま
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[bb=0 0 800 200,clip,width=7	cm,height=5cm]{fig3x6.bmp}
+	\caption{楕円に沿う積分}
+	\label{fig3x6}
+\end{figure}
+\[
+	\frac{2z}{z^2-1} = \frac{1}{z-1} + \frac{1}{z+1}
+\]
+と変形しておいて，$z= \pm 1$のまわりに小さい円
+$C_{\pm} \: : \: |z \mp 1 | = \varepsilon$を描く．
+被積分関数は楕円$C$の内部から小円$C_{\pm}$の内部を除いた領域で正則
+だから，積分路を変形することができ，
+\[
+  \oint_C \frac{2z}{z^2-1} \frac{dz}{2 \pi i}
+  =
+  \oint_{C_+} \frac{2z}{z^2-1} \frac{dz}{2 \pi i}
+  +
+  \oint_{C_-} \frac{2z}{z^2-1} \frac{dz}{2 \pi i}
+\]
+となる．さらに$1/(z+1)$は$z=1$の近くで正則だから$C_+$での積分には
+寄与しないので，(\ref{eq3x22})の計算を利用して
+\[
+	\oint_{C_+} \left(
+                 \frac{1}{z-1} + \frac{1}{z+1}
+              \right) \frac{dz}{2 \pi i}
+  =
+  \oint_{C_+} \frac{1}{z-1} \frac{dz}{2 \pi i} =1
+\]
+まったく同様の計算により，結局
+\[
+	\oint_C \frac{2z}{z^2-1} \frac{dz}{2 \pi i} = 1 + 1 =2
+\]
+を得る．
+\□
+
+\問{6}
+次のそれぞれの場合について積分
+\[
+	\oint_{|z|=r} \frac{4z-3}{2z^2 - 3z -2} \frac{dz}{2 \pi i}
+\]
+を計算せよ：
+$
+(1) \: r < 1/2, \quad (2) \: 1/2 < r < 2, \quad (3)\:  r > 2.
+$
+
+\解
+$(1) \: 0, \: (2) 1, \: (3) \:2$
+
+\例題{3.25}
+多項式$P(z)$に対し，次の積分を計算せよ．
+\[
+	I= \oint_C \frac{P'(z)}{P(z)} \frac{dz}{2 \pi i}
+\]
+ただし$C$は単純閉曲線とし，$P(z)$は$C$の上で$0$にならないとする．
+\footnote{
+$C$の外，内側で$0$になるのは構わない.
+}
+
+\解
+$C$の内部にある$P(z)$の零点$c_1, \cdots , c_r$とする．
+$P(c_1) =0$だから,
+(\ref{eq2x32})の後の注意により適当な自然数$n_1$をとって
+$P(z) = (z-c_1)^{n_1} P_1(z))$
+（$P_1(z)$は多項式で$P_1(c_1) \ne 0$）という形に書ける．
+この操作を繰り返していけば，結局
+\begin{list}{}{}
+	\item	$P(z) = (z-c_1)^{n_1} \cdots (z-c_r)^{n_r} Q(z),$
+	\item	$Q(z)$は多項式で$C$の内部および$C$上では$0$にならない．\footnote{?保留}
+\end{list}
+という形になる．両辺を対数微分すると
+\footnote{
+\textbf{対数微分法}　
+関数の関数べきや複雑な積の関数の微分では，対数をとってから微分すると
+うまくいくことがある．
+$w=f(z)$の対数をとって$\log w = \log f(z)$.両辺微分して
+$\displaystyle \frac{1}{w} w' = (\log f(z))'$.
+}
+\begin{align*}
+  \Rightarrow &
+  \log P(z) = n_1 \log (z-c_1)+ \cdots + n_r \log (z-c_r) + \log Q(z) \\
+  \Rightarrow &
+	\frac{P'(z)}{P(z)} = \frac{n_1}{z-c_1} + \cdots + \frac{n_r}{z-c_r} + \frac{Q'(z)}{Q(z)}
+\end{align*}
+で，最後の項は$C$をこめてその内部で正則\footnote{?保留}である（つまり$0$）．
+だから，上の例と同じ様に計算すれば
+\[
+	I= \sum_{j=1}^r \oint_C \frac{n_j}{z-c_j} \frac{dz}{2 \pi i }
+   = n_1 + \cdots + n_r.
+\]
+すなわち，積分$I$によって$C$の内部にある$P(z)$の根の数が重複度も込めて
+勘定される．
+\□
+
+この考え方を応用すると第1章で予告した次の事実が証明できる．
+
+\定理{3.26}
+（代数学の基本定理）$n$次多項式は$\C$上重要度を込めて
+$n$個の零点を持つ．
+
+\証明
+$P(z) = a_0 z^n + \cdots + a_n \: (a_0 \ne 0)$を$n$次多項式とし，
+その零点が全部で$N \: ( \geqq 0)$個あるとする．示すべきことは
+$N = n$である．いますべての零点を内部に含む十分大きい
+円周$|z| = R$をとると，上の例題から
+\[
+	\oint_{|z|=R} \frac{P'(z)}{P(z)} \frac{dz}{2 \pi i} = N.
+\]
+とくにこの値は$R$が十分大きい限り$R$にはよらない．
+$\displaystyle \frac{P'(z)}{P(z)}$を評価するために，
+とくに$P'(z)$が$n-1$次の多項式となっていることに注目して，
+\begin{align*}
+	z P'(z) &= z( a_0 n z^{n-1} + a_1 (n-1) z^{n-2}
+                             + a_2 (n-2) z^{n-3}
+                             + \cdots
+                             + a_{n-1}) \\
+          &= a_0 n z^n + a_1 (n-1) z^{n-1} + a_2 (n-2) z^{n-2}
+                             + \cdots
+                             + a_{n-1}z \\
+          &= \sum_{i=0}^{n-1} a_{i} (n-i) z^{n-i} \\
+  n P(z)  &= n \sum_{i=0}^n a_i z^{n-i}
+           = \sum_{i=0}^{n-1} n a_i z^{n-i} + na_n
+\end{align*}
+を用意しておき，他方
+\[
+	\frac{P'(z)}{P(z)} = \frac{n}{z} + \frac{Q(z)}{zP(z)}
+\]
+とおけば，$Q(z) = z P'(z) - n P(z)$は
+\begin{align*}
+	Q(z) &= z P'(z) - n P(z) = \sum_{i=0}^{n-1} a_{i} (n-i) z^{n-i}
+                           -\left(
+                                 \sum_{i=0}^{n-1} n a_i z^{n-i} + na_n
+                            \right)	\\
+       &= \sum_{i=0}^{n-1} (-i a_i)z^{n-i} -na_n
+\end{align*}
+となり，($i=0$の場合が消えて），たかだか$n-1$次の多項式である．
+両辺を積分すれば
+\[
+	\oint_{|z|=R} \frac{P'(z)}{P(z)} \frac{dz}{2 \pi i} 
+= n + \oint_{|z|=R} \frac{Q(z)}{zP(z)} \frac{dz}{2 \pi i }.
+\]
+この第2項が$R \rightarrow \infty$で$0$になることを示せば目的の式$N=n$が
+得られる．
+
+$|z|=R$のとき
+\begin{align*}
+	|z P(z)| &= \left|
+                z \sum_{j=0}^{n}
+                a_j z^{n-j}
+             \right| \quad \\
+           &\geqq |a_0| |z|^{n+1} - \sum_{j=1}^{n} |a_j||z|^{n-j+1} \quad \text{(三角不等式:$|x|-|y| \leqq |x+y|$ )}\\
+           &\geqq R^{n+1} \left(
+                            |a_0| - \sum_{j=1}^n |a_j| R^{-j}
+                         \right) \\
+\end{align*}
+また$\displaystyle Q(z) = \sum_{j=0}^{n-1} b_j z^{n-1-j}$ならば
+\[
+	|Q(z)| \leqq \sum_{j=0}^{n-1} |b_j||z|^{n-1-j}
+         \leqq R^{n-1} \sum_{j=0}^{n-1} |b_j| R^{-j}
+\]
+であるから，適当に$M>0$を選んで$R$が十分に
+$ \left(\text{高々有限の}
+ \sum |b_j| R^{-j} \bigl/ \left( |a_0| - \sum |a_j| R^{-j}\right)
+\text{より} \right) $大きければ
+\[
+	\frac{|Q(z)|}{|z P(z)|} 
+\leqq \frac{\displaystyle
+            R^{n-1} \sum_{j=0}^{n-1} |b_j| R^{-j}}{
+            \displaystyle
+            R^{n+1} \left(
+              |a_0| - \sum_{j=1}^n |a_j| R^{-j}
+                    \right)}
+\leqq \frac{M}{R^2}
+\]
+とすることができる．ゆえに
+\[
+	\left| \oint_{|z|=R} \frac{Q(z)}{zP(z)} \frac{dz}{2 \pi i}
+  \right|
+  \leqq
+  \oint_{|z|=R}
+  \left| \frac{Q(z)}{zP(z)} \frac{dz}{2 \pi i}
+  \right|
+  =
+		  \oint_{|z|=R}
+		  \left| \frac{Q(z)}{zP(z)} \frac{R i e^{i \theta} d \theta}{2 \pi i}
+  \right|
+  \leqq
+  \oint_0^{2 \pi} \frac{M}{R^2} \frac{R d \theta}{2 \pi} = \frac{M}{R}
+\]
+となって，右辺は$R \rightarrow \infty$で$0$に収束する．
+
+\注意{3.27}
+一般に$f(z)$が$C$とその内部を含む領域で正則ならば，
+対数微分の積分$\displaystyle \frac{1}{2 \pi i} \int_C (f'(z) / f(z)) dz$は
+重複度を込めて$C$の内部になる$f(z)$の零点の数に等しいことが
+証明できる．この事実は普通\textbf{偏角の原理}（argument principle)という
+名で呼ばれる．

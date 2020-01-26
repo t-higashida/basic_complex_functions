@@ -1,0 +1,31 @@
+\subsection{3角関数}
+
+3角関数$\cos	z,	\:	\sin	z$はべき級数で定義したが，指数関数を用いて
+\begin{equation}
+	\cos	z	=	\frac{e^{iz}	+	e^{-iz}}{2},	\quad	\sin	z	=	\frac{e^{iz}-e^{-iz}}{2i}
+	\label{eq2x36}
+\end{equation}
+と書ける．これから実数のときに知っていた関係，例えば
+\begin{align*}
+	&\cos	(	z	+	2	\pi)	=	\cos	z	=	\cos	(-z)	\quad
+	&\sin	(	z+	2	\pi)	=	\sin	z	=	-	\sin	(-z),		\\
+	&\cos	(	z	+	\frac{\pi}{2})	=	-\sin	z	,	\quad	\sin	(	z	+	\frac{\pi}{2})	=	\cos	z,	\\
+	&\cos^2	z	+	\sin	^2	z	=1
+\end{align*}
+などはすべて一般の複素数でも正しいことがすぐにわかる（関数関係不変の原理を用いてもよい）．
+
+\問{9}
+$z$が複素数のとき$|\sin	z	|	\leqq	1$は正しいか？
+
+\解
+$z=	x	+	iy$なら$|	\sin	z	|	=	|e^{ix-y}	-	e^{-ix	+	y}|/2	=	e^y|1-e^{2ix	-	2y}|/2$だから，
+$y	\rightarrow	\infty$のときこれは$e^y/2$程度に急速に増大する．
+\□
+
+\問{10}
+複素平面における$\sin	z$の零点をすべての求めよ．
+
+\解
+$e^{iz}=e^{-iz}	\Longleftrightarrow	e^{2iz}	=1$より$z	=	n\pi	\:	(n\in	\Z)$
+すなわち実数の零点でつきる．
+\□

@@ -1,0 +1,123 @@
+\chapter{複素平面}
+
+複素数は実数と同じように加減乗除や極限を考えことのできる数の体系である．
+複素数とは何であったかをもう一度見直し，それが複素平面の点として最も自然に
+表されることをを見る．複素関数論はこの複素平面を舞台に展開する．
+
+\section{複素数}
+
+\subsection{複素数とは何か}
+
+この本は，複素数に一度触れたことのある読者を想定して書かれている．
+それでも複素関数について語るからには，話の順序としてその概念を
+一通り振り返っておきたい．私たちは複素数というものを，次のように理解している
+のではないだろうだろうか．
+
+\begin{list}{}{}
+	\item	（ⅰ）$i^2=-1$となる数$i$(\textbf{虚数単位}，imaginary	unit)がある．
+	\item （ⅱ）複素数は$\alpha	=	a	+	ib$($a,b$は実数)の形にだ多一通り表される．実数$a$は$a	+	i0$という特別な複素数である．
+	\item	（ⅲ）複素数は実数と同じ規則にしたがって足し算・掛け算ができる．
+詳しくいうと，演算の規則として次のものを設けているのである．
+
+[加法の交換側・結合側]
+\begin{equation}
+	\alpha	+	\beta	=	\beta	+	\alpha	,	\quad	(\alpha	+	\beta	)	+	\gamma	=	\alpha	+	(\beta	+	\gamma),
+	\label{eq1x1xa}
+\end{equation}
+
+[乗法の交換則・結合則]
+\begin{equation}
+	\alpha	\beta	=	\beta	\alpha	,	\quad	(\alpha		\beta	)		\gamma	=	\alpha		(\beta		\gamma),
+	\label{eq1x1xb}
+\end{equation}
+
+[分配則]
+\begin{equation}
+	\alpha	(\beta	+	\gamma)	=	\alpha\beta	\alpha\gamma,
+	\label{eq1x1xc}
+\end{equation}
+
+[加法・乗法の単位元の存在]
+\begin{equation}
+	\alpha	+	0	=	\alpha,	\quad	\alpha	\cdot	1	=	\alpha.
+	\label{eq1x1xd}
+\end{equation}
+\end{list}
+
+計算の過程で$i^2$が現れたらそれを$-1$で置き換えることによって，結果はまた$a	+	ib$の形に
+なるのだった．したがって，掛け算を具体的に実行すれば
+\[
+	(a+ib)(c+id)	=	av	+	ibc	+	iad	+	i^2bd	=	(ac	-	bd)	+	i(ad	+	bc)
+\]
+となる．
+
+複素数$\alpha	=	a	+	ib$に対し，$a$をその\textbf{実部}(real part)，$b$を\textbf{虚部}(imaginary part)
+と言って，それぞれ記号$a=	\text{Re }	\alpha$,$b=	\Img	\alpha$で表す．
+($ib$を虚部と呼ぶほうが合理的かもしれないが，これが伝統的な呼称である．）虚部が$0$でない複素数
+のことを，実数でない数という気持ちで虚数という．特に実部が$0$のとき$\alpha	=	ib$を純拠数という．
+
+また$\overline{\alpha}	=	a	-	i	b$を$\alpha$の\textbf{複素共役}(ふくそきょうやく，complex conjugate)，
+$|\alpha|=	\sqrt{a^2	+b^2}$を$\alpha$の\textbf{絶対値}(absolute value)という．すぐにわかるように
+\begin{align*}
+	\text{Re }\alpha	=	\frac{\alpha	+	\overline{\alpha}}{2},	\quad	
+	&\text{Im }\alpha	=	\frac{\alpha	-	\overline{\alpha}}{2i},	\quad
+	\overline{\overline{\alpha}}	=	\alpha,	\\
+	\overline{\alpha	\pm	\beta}	=	\overline{\alpha}	\pm	\overline{\beta},\quad
+	&\overline{\alpha	\beta}			=	\overline{\alpha}\overline{\beta},\quad
+	|\alpha|^2	=	\alpha	\overline{\alpha}
+\end{align*}
+が成り立つ．これから$|\alpha	\beta|^2	=	\alpha	\beta	\overline{\alpha}\overline{\beta}$，
+したがって
+\[
+	|\alpha	\beta	|	=	|\alpha	|	|	\beta|.
+\]
+さらに，$\alpha=0	\Longleftrightarrow	|\alpha|=	|0|$だから，$\alpha	\ne	0$のもとに
+逆数$1	/	\alpha	$が存在して
+\[
+	\frac{1}{\alpha}	=	\frac{\overline{\alpha}}{|\alpha|^2|},
+	\quad
+	\text{すなわち}
+	\frac{1}{a+ib}	=	\frac{a}{a^2+b^2}-i\frac{b}{a^2+b^2}
+\]
+で与えられる．よって，$-\alpha	=	(-1)	\times	\alpha$と合わせて，
+
+[加法・乗法の逆元の存在]
+\begin{equation}
+	\alpha	+	(-	\alpha)	=	0	,	\quad	\alpha	\cdot	\frac{1}{\alpha}	=	1	\quad	(\alpha	\ne	0)
+	\label{eq1x2}
+\end{equation}
+も成り立っている．代数学の言葉では，(\ref{eq1x1xa})-(\ref{eq1x1xd}),(\ref{eq1x2})を満たす体系を\textbf{体}(field)
+という．複素数(complex number)全体の集合をすうの体系として見たときは\textbf{複素数体}とよび，
+頭文字をとって$\C$で表す．同様に実数(real numver)全体の集合は$\R$で表す．
+
+\問{1}
+次の絶対値を求めよ．
+
+(1)　$-2i	(3+i)(2+4i)(1+i)$
+
+\解
+\[
+	\text{与式}	=	(-6i+2)(-2+6i)	=	32
+\]
+(2)　$(3+4i)(-1+2i)/(-1-i)(3-i)$
+
+\解
+\begin{align*}
+	\text{与式}	&=	(-11+2i)/(-4-2i)	=	(-11+2i)(-4/20+2i/20)	\\
+							&=	(44/20	-22i/20	-8i/20	-4/20)=2+3i/2
+\end{align*}
+
+\問{2}
+$\alpha	=	a+	ib	\,	b	\ne	0$のとき$\alpha/	(1+	\alpha^2)$が実数になるための条件は
+$a^2+b^2=1$であることを示せ．
+
+\証明
+$\alpha/(1+\alpha^2)$が実数ならばその逆数$(1+\alpha^2)/\alpha	=	1/\alpha	+	\alpha$も実数であるから，
+\[
+	1/\alpha	+	\alpha	=	a/(a^2+b^2)	-bi/(a^2+b^2)	+	a	+	ib
+\]
+ここで$\text{Im	}	(1/\alpha	+	\alpha)	=0$であるから
+\[
+	0	=	-b/(a^2+b^2)	+	b	
+		\Longrightarrow	1	=	a^2+b^2
+\]

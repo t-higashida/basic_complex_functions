@@ -1,0 +1,73 @@
+\subsection{距離}
+
+複素平面上の2点
+$\alpha	=	a+	ib$，$\beta	=	c	+	id$の距離は絶対値
+\[
+	|\alpha	-	\beta	|	=	\sqrt{(a-c)^2	+	(b-d)^2}
+\]
+で表される．次の性質の図形的な意味は明白であろう（\textbf{距離の公理}）．
+
+\begin{list}{}{}
+ \item（ⅰ）$|\alpha	-	\beta	|	\geqq	0, \quad |\alpha	-	\beta	|=	0	\Leftrightarrow	\alpha	=	\beta$
+ \item（ⅱ）$|\alpha - \beta | = |\beta - \alpha|$
+ \item（ⅲ）$ |\alpha	-	\beta	|	\leqq	|\alpha	-	\gamma	|	+	|	\gamma	-	\beta|$　　\textbf{(三角不等式)}
+\end{list}
+
+
+\問{7}
+絶対値の定義を使って三角不等式を証明せよ．
+
+
+\問{8}
+次の不等式を確かめよ．
+\begin{align*}
+	&	|\text{Re } \alpha	|,|\text{Im } \alpha	|	\leqq	|\alpha|	\leqq	|\text{Re } \alpha	|+|\text{Im } \alpha	|,
+	\quad
+	||\alpha	|	-	|	\beta||	\leqq	|\alpha	-	\beta|,	\\
+	&	|\alpha_1	+	\cdots	+	\alpha_n	|	\leqq	|\alpha_1|	+	\cdots	+	|\alpha_n	|.
+\end{align*}
+
+明らかに，方テ式$|z	-	\alpha	|		=	r	\:	(r>0)	$は中心$\alpha$，
+半径$r$の円周を表す．一般に複素数の計算では絶対値の複素共役を活用すると見通しがよくなる．
+実部と虚部にわけて計算するのは最後の手段，と思った方が良い．
+
+\例題{1.4}
+$\beta	\in	\C$，$a,c	\in	\R$のとき，次の方程式はどんな図形を表すか．
+\begin{equation}
+	a	z	\overline{z}	+	\overline{\beta}z	+	\beta	\overline{z}	+	c	=	0.
+	\label{eq1x7}
+\end{equation}
+\解
+$a	\ne	0$のとき(\ref{eq1x7})は
+\begin{align*}
+	&\Rightarrow
+	z	\overline{z}	+	\frac{\overline{\beta}z}{a}	+	\frac{\beta	\overline{z}}{a}	=	\frac{-c}{a}.	\\
+	&\Rightarrow
+	z	\overline{z}	+	\frac{\overline{\beta}z}{a}	+	\frac{\beta	\overline{z}}{a}	+\frac{|\beta|^2}{a^2}=	\frac{|\beta|^2-ac}{a^2}.	\\
+	&\Rightarrow
+	\left|	z	+	\frac{\beta}{a}	\right|^2
+	=
+	\left(z	+	\frac{\beta}{a}	\right)
+	\left(\overline{z}	+	\frac{\overline{\beta}}{a}	\right)
+	=
+	\frac{|\beta|^2	-ac}{a^2}	
+\end{align*}
+と変形できる．$|\beta|^2	>	ac$のときこれは中心$-\beta	/	a$，
+半径$\sqrt{|\beta|^2	-	ac}/|a|$の円周を表す．
+$|\beta|^2=ac$なら１点$-\beta/a$，$|\beta|^2	<	ac$なら空集合である．
+
+また$a=0$のとき，$\beta	=	(p	+	iq)/2,	\:	z	=	x	+	iy$とおけば
+\begin{align*}
+	&\Rightarrow
+	\overline{\beta}z	+	\beta	\overline{z}	+	c	=	0.	\\
+	&\Rightarrow
+	\overline{\frac{p	+	iq}{2}}(x	+	iy)	+	\left(\frac{p	+	iq}{2}\right)\left(\overline{x	+	iy}\right)	+	c	=	0.	\\
+	&\Rightarrow
+	\frac{p	-	iq}{2}(x	+	iy)	+	\left(\frac{p	+	iq}{2}\right)\left(	x	-	iy\right)	+	c	=	0.	\\
+\end{align*}
+
+(\ref{eq1x7})は$px	+	py	+	c=0$となるから，これは平面上の直線を表す．
+
+実は円と直線が同じ形の方程式(\ref{eq1x7})にまとめられることは自然な理由がある
+(§4.5参照）．
+\■

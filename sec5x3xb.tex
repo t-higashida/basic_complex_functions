@@ -1,0 +1,23 @@
+\subsection{絶対収束の判定(無限積)}
+
+応用上はワイエルシュトラスの$M-$判定法の無限積版である次の判定法が便利である．
+
+\定理{5.12}
+領域$D$上で正則な関数の列$\{u_n(z)\}_{n=1}^\infty$が$D$上で評価
+\begin{equation}
+	|u_n(z)|	\leqq	M_n,	\quad	\sum_{n=1}^{\infty}M_n	<	\infty
+	\label{eq5x9}
+\end{equation}
+を満たすとする．このとき：
+\begin{list}{}{}
+	\item（ⅰ）無限積
+						\[
+							f(z)	=	\prod_{n=1}^{\infty}	(1+u_n(z))
+						\]
+					　は$D$上で絶対収束して正則な関数になる．
+	\item（ⅱ）$f(z)=0$となるのはある$n$に対して$1+u_n(z)=0$となるとき，かつそのときに限る．
+	\item（ⅲ）対数微分の公式
+						\[
+							\frac{f'(z)}{f(z)}	=	\sum_{n=1}^{\infty}	\frac{u'_n(z)}{1+u_n(z)}
+						\]が成り立つ．
+\end{list}

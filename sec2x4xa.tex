@@ -1,0 +1,81 @@
+\section{解析関数}
+
+\subsection{べき級数への再展開}
+
+多項式の表し方は，(\ref{eq2x1})が唯一のものではない．いま勝手に$c	\in	\C$をとって，
+$z^n$を2項展開する：
+\[
+	z^n	=	(c+(z-c))^n	=	\sum_{k=0}^{n}	\binom{n}{k}c^{n-k}	(z-c)^k.
+\]
+これを(\ref{eq2x1})の各項に代入して整理すると，
+\[
+	P(z)	=	\sum_{n=0}^{N}	a_n	\sum_{k=0}^{n}	\binom{n}{k}c^{n-k}	(z-c)^k
+				~	b_0	+	b_1	(z-c)	+	\cdots	+	b_N	(z-c)^N
+\]
+の形にまとめなおすことができる．このときの係数は，よく見ると
+\[
+	b_k	=	\sum_{n=k}^{N}\binom{n}{k}a_n	c^{n-k}
+			=	\frac{1}{k!}	\sum_{n=k}^{N}	n(n-1)	\cdots	(n-k+1)	a_n	c^{n-k}
+			=	\frac{P^{k}(c)}{k!}
+\]
+で与えられる．つまり，上の展開は多項式$P(z)$を点$c$でテイラー(Taylor)
+展開したことに他ならない：
+\begin{equation}
+	P(z)	=	P(c)	+	\frac{P'(c)}{1!}	(z-c)	+	\cdots	+	\frac{P^{(N)}(c)}{N!}	(z-c)^N.
+	\label{eq2x32}
+\end{equation}
+
+\注意{2.33}特に$P(c)=0$ならば$P(z)$は$z-c$で割り切れる，つまり
+$P(z)=(z-c)P_1(z)$（$P_1(z)$は多項式）と書けることがわかる．これを因数定理という
+（「代数入門Ⅰ）参照）．
+
+同じことをべき級数$f(z)=\sum_{n=0}^{\infty}a_nz^n$に対して実行してみよう．
+収束円$|z|<\rho$の内部に点$c$をとり，上の変形で形式的に$N\rightarrow\infty$とすれば
+\begin{align}
+	f(z)=b_0+b_1(z-c)+b_2(z-c)^2+\cdots	=	\sum_{n=0}^{\infty}b_n(z-c)^n,	\notag	\\
+	b_k=\sum_{n=k}^{\infty}\binom{n}{k}a_nc-{c-k}	=	\frac{f^{(k)}(c)}{k!}
+		\label{eq2x33}
+\end{align}
+が得られるだろう．(\ref{eq2x33})の形の級数を，\textbf{点$c$を中心とするべき級数}とよぶ
+
+いま述べた主張を確かめておこう．
+
+
+\定理{2.34}
+収束べき級数は収束半径内の各点$c$を中心としてべき級数展開可能である．すなわち，(\ref{eq2x33})の
+右辺は$c$を中心として収束円$|z|<\rho $に含まれる最大の円板
+$|z-c|	<	\rho	-|c|$で絶対収束し，$f(z)$に等しい．
+
+\証明
+
+$0	<	R	<\rho$を任意にとって，$|z-c|	<	R	-	|c|$で考えればよい．
+このとき$\{|a_nR^n|\}_{n=0}^\infty$は有界であるから，$|a_n|	\leqq	M	/R^n$となるように$M	>	0$をとる(条件\ref{eq2x6})．このとき
+\begin{align*}
+	\sum_{n=0}^{\infty}|a_n|	\sum_{k=0}^{n}\binom{n}{k}	|c|^{n-k}	|z-c|^k	
+		&	\leqq	\sum_{n=0}^{\infty}	MR^{-n}	(|z-c|	+	|c|)^n	\\
+		&=			\sum_{n=0}^{\infty}	M	\left(\frac{|z-c|	+	|c|}{R}	\right)^n	\\
+		&=	\frac{MR}{R-|z-c|-|c|}
+\end{align*}
+は有限である．よって絶対収束する2重級数の和の順序を交換すれば
+\begin{align*}
+	\sum_{n=0}^{\infty}	a_n	\sum_{k=0}^{n}\binom{n}{k}	c^{n-k}	(z-c)^k
+	&=	\sum_{k=0}^{\infty}	(z-c)^k	\sum_{n=k}^{\infty}	a_n	\binom{n}{k}	c^{n-k}	\\
+	&=	\sum_{k=0}^{\infty}	\frac{f^{k}(c)}{k!}	(z-c)^k.
+\end{align*}
+\■
+
+\例{2.35}
+幾何級数(\ref{eq2x3})を，点$c	\:	(|c|<1)$のまわりでべき級数展開してみよう．
+\begin{align*}
+	\frac{1}{1-z}	&=	\frac{1}{(1-c)-(z-c)}	
+									=	\frac{1}{\displaystyle	(1-c)	\left(1-\frac{z-c}{1-c}	\right)}	\\
+								&=	\frac{1}{1-c}	+	\frac{z-c}{(1-c)^2}	+	\frac{(z-c)^2}{(1-c)^3}	+	\cdots
+\end{align*}
+この級数は定理2.34が保証する範囲$|z-c|<1-|c|$よりも一般に大きい円板
+$|z-c|	<	|1-c|$で収束している（図2.1参照）
+\begin{figure}[hbtp]	
+		\centering	
+		\includegraphics[bb=0 0 800 600,clip,width=6cm,height=5cm]{fig2x1.bmp}	
+		\caption{$1/(1-z)$の解析接続．点線の円は$|z-c|	<1-|c|$を表す．破線の円は$|z-c|	<	|1-c|$を表す．}	
+		\label{fig2x1}	
+\end{figure}	

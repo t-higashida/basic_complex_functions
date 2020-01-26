@@ -1,0 +1,259 @@
+\chapter{コーシーの積分公式とその応用}
+
+コーシーの積分定理ほど簡単で内容豊富な定理は数学の中でも
+そう多くない．この章では，コーシーの積分定理を書くにして
+次々に導かれる正則関数の基本性質を解説する．
+
+\section{コーシーの積分公式}
+べき級数はその収束円の中で微分可能であるから，
+各点でべき級数に展開できる関数（解析関数）は正則である．
+逆に正則関数は必ず解析的であるという事実を示すのがこの節の
+目標である．
+
+\subsection{円板におけるコーシーの積分公式}
+状況を単純にするため，しばらく円板の正則関数を考えよう，
+$f(z)$は閉円板$\overline{D}(c; R) = \{ z \: | \: |z - c | \leqq R \}$を
+含む領域で正則とする．解析関数の場合には，円周$|z - c| = R$における
+$f(z)$の値が決まれば，一致の定理によって円板内部での値も原理的に決まってしまう．
+\footnote{
+つまり$| z -c |=R$上で$f(z)=g(z)$ならば$|z - c | < R$においても$f(z) = g(z)$.
+}
+実は一般の正則関数に対しても同じことが言える．それをあらわな表示式で与えるのが
+コーシーの積分公式である． 
+
+\定理{4.1}
+（コーシーの積分公式（円の場合））
+$f(z)$が閉円板$\overline{D}(c;R)$を含む領域で正則であれば，
+円板の内部の点$z$に対して
+\begin{equation}
+	f(z) = \oint_{|\zeta -c| = R} \frac{f(\zeta)}{\zeta - z} \frac{d \zeta}{2 \pi i}
+  \quad (|z-c| < R)
+\label{eq4x1}
+\end{equation}
+が成り立つ．ここに積分路は正の向きをつけた円周とする．
+
+\証明
+
+円板$D = D(c ; R)$内に1点$z$を固定して，$\zeta$の関数
+\[
+	g(\zeta) = \frac{f(\zeta)}{\zeta - z}
+\]
+を考える．これは$D$から点$z$を除いた領域で正則なので，例3.22で扱った状況に
+なっている．
+そこで$z$のまわりに十分小さい半径$\varepsilon$の小円
+$|\zeta - z| = \varepsilon$を描いて積分路変形の原理を
+$g(\zeta)$に適用すれば
+\begin{equation}
+	\oint_{|\zeta - c| = R} \frac{f(\zeta)}{\zeta -z}\frac{d \zeta}{2 \pi i}
+  =
+  \oint_{|\zeta - z| = \varepsilon} \frac{f(\zeta)}{\zeta - z} \frac{d \zeta}{2 \pi i}
+\label{eq4x2}
+\end{equation}
+を得る．左辺は$\varepsilon$には無関係なのだからこの値は$\varepsilon$に依存しない．
+一方右辺をパラメータ表示$\zeta = z + \varepsilon e^{i \theta}$で書き下すと
+\[
+	\int_0^{2 \pi} \frac{f(z + \varepsilon e^{i \theta})}{\varepsilon e^{i \theta}}
+                 \frac{i \varepsilon e^{i \theta} d \theta}{2 \pi i}
+  =
+  \int_0^{2 \pi} f(z + \varepsilon e^{i \theta}) \frac{d \theta}{2 \pi}.
+\]
+したがって，極限$\varepsilon \rightarrow 0$へ行けば(\ref{eq4x2})の両辺は
+\[
+	\lim_{\varepsilon\rightarrow0} \int_0^{2\pi} f(z + \varepsilon e^{i \theta}) \frac{d \theta}{2 \pi} 
+  =
+  \int_0^{2 \pi} f(z) \frac{d \theta}{2 \pi} = f(z)
+\]
+に等しくなり公式(\ref{eq4x1})が得られるだろう．この極限移行が
+正しいことを確かめよう．極限との誤差を見積もると
+\begin{align*}
+	\left| \int_0^{2 \pi}
+         \left( f(z + \varepsilon e^{i \theta}) - f(z)
+         \right) \frac{d \theta}{2 \pi}
+  \right|
+  & \leqq
+  \int_0^{2\pi}
+  \left|
+    f(z + \varepsilon e^{i \theta}) - f(z)
+  \right|
+  \frac{d \theta}{2 \pi} \\
+  & \leqq
+  \sup_{ |\zeta - z | = \varepsilon } |f(\zeta) - f(z)|.
+\end{align*}
+ここで$f(\zeta)$は$\zeta = z$で連続だから，$\varepsilon \rightarrow 0$のとき
+右辺は$0$に収束する．
+\■
+
+\subsection{べき級数展開}
+
+コーシーの積分公式(\ref{eq4x1})をよく見ると，積分路は$z$によらないから
+右辺の$z$依存性は$1/(\zeta - z)$だけに入っていることに気付く．この簡単な
+関数を$z$のべき級数に展開することによって，一般の正則関数が定義領域の
+各点において解析的（べき級数に展開可能）であることが導かれてしまう．
+
+\定理{4.2}
+（正則関数のべき級数展開）
+閉円板$\overline{D}(c ; R)$上の連続関数$f(z)$に対して，
+積分公式(\ref{eq4x1})が円板内の任意の点$z \in D(c ; R)$で
+成り立っているものとする．このとき$f(z)$は$|z - c| < R$で
+収束べき級数に展開される：
+\begin{align}
+	f(z) &= \sum_{n=0}^\infty a_n (z-c)^n, \notag \\
+   a_n &= \oint_{|\zeta - c| = R}\frac{f(\zeta)}{(\zeta - c)^{n+1}} \frac{d \zeta}{2 \pi i}.
+  \label{eq4x3}
+\end{align}
+特に，任意の正則関数は各点で収束べき級数展開を持つ．
+
+\証明
+積分公式(\ref{eq4x1})において，分母を幾何級数（等比級数）に展開しよう．
+\begin{align*}
+	\frac{1}{\zeta - z} &= \frac{1}{(\zeta -c ) - (z -c)} \\
+                      &= \frac{1}{(\zeta - c) \left( 1- \displaystyle\frac{z - c}{\zeta - c} \right)} \\
+                      &= \frac{1}{\zeta - c} + \frac{z -c}{(\zeta -c)^2} + \frac{(z-c)^2}{(\zeta - c)^3} + \cdots.
+\end{align*}
+ただし$|z - c| \leqq r \: (0 < r < R)$で考える．
+この級数は$\zeta$の関数として円周$| \zeta - c|=R$で一様収束する．
+実際$|\zeta - z| \geqq |\zeta - c| - |z -c| \geqq R-r$に注意すれば
+\begin{align*}
+	\sup_{|\zeta -c|=R} 
+  \left|
+     \sum_{n=0}^N \frac{(z-c)^n}{(\zeta - c)^{n+1}} - \frac{1}{\zeta -z}
+  \right|
+  &=
+  \sup_{|\zeta -c|=R}
+  \left|
+     \frac{1}{\zeta - c} \sum_{n=0}^N \frac{(z-c)^n}{(\zeta - c)^{n}} - \frac{1}{\zeta -z}
+  \right| \\
+  &=
+  \sup_{|\zeta -c|=R}
+  \left|
+     \frac{1}{\zeta - c} \left(
+                           \frac{ \displaystyle 1 - \left( \frac{z-c}{\zeta - c}
+                                     \right)^{N+1}
+                                }{\displaystyle 1 - \frac{z-c}{\zeta - c}}
+                         \right)
+     - \frac{1}{\zeta -z}
+  \right| \\
+  &=
+  \sup_{|\zeta -c|=R}
+  \left|
+         \frac{ \displaystyle 1 - \left( \frac{z-c}{\zeta - c}
+                   \right)^{N+1}
+              }{(\zeta - c) - (z-c)}
+     - \frac{1}{\zeta -z}
+  \right| \\  
+  &=
+  \sup_{|\zeta -c|=R}
+  \left|
+     \frac{1}{\zeta - z}
+       \left(
+         \frac{z-c}{\zeta - c}
+       \right)^{N+1}
+  \right| \\
+  & \leqq
+  \frac{1}{R-r}\left( \frac{r}{R} \right)^{N+1}
+  \rightarrow 0 \quad (N \rightarrow \infty)
+\end{align*}
+このことと$|f(\zeta)|$が$|\zeta -c|=R$上で有界であることを合わせれば
+\[
+	f(\zeta) \sum_{n=0}^\infty \frac{(z-c)^n}{(\zeta - c)^{n+1}} = \frac{f(\zeta)}{\zeta - z}
+\]
+も$|\zeta - c| = R$で一様収束することがわかる．ゆえに項別積分が許されて
+（命題3.16），
+\[
+	\oint_{|\zeta - c|=R} \frac{f(\zeta)}{\zeta - z} \frac{d \zeta }{2 \pi i}
+=
+  \sum_{n=0}^\infty (z-c)^n \oint_{|\zeta - c| =R} \frac{f(\zeta)}{(\zeta - c)^{n+1}} \frac{d \zeta}{2 \pi i}.
+\]
+コーシーの積分公式から左辺は$f(z)$に等しい．すなわち(\ref{eq4x3})が得られる．
+
+なお証明からわかるように，(\ref{eq4x3})は任意の$r < R$に対し$z$について
+$|z - c | \leqq r$で一様に収束していることに注意しておこう．
+\■
+
+第2章で見たように，収束べき級数は何回でも微分でき（定理2.20，系2.21），
+その展開係数は$a_n = f^{(n)} / n!$で与えられる．したがって
+(\ref{eq4x3})は次のように言うこともできる．
+
+\系{4.3}
+正則関数は何回でも微分可能であって，各点で\textbf{テイラー展開}
+\begin{equation}
+	f(z) = \sum_{n=0}^\infty \frac{f^{(n)} (c)}{n!} (z-c)^n
+\label{eq4x4}
+\end{equation}
+が成り立つ．
+\□
+
+直観的に考えると，(\ref{eq4x1})
+\begin{align*}
+  f(z) &= \oint_{| \zeta - c|=R} \frac{f(\zeta )}{\zeta - z} \frac{d \zeta}{2 \pi i} (|z - c | < R )	\\
+       &= \sum_{n=0}^\infty (z-c)^n \oint_{|\zeta - c|=R} \frac{f(\zeta)}{(\zeta - c)^{n+1}} \frac{ d \zeta}{2 \pi i}.
+\end{align*}
+
+両辺を\underline{形式的に}$\: z$について微分すれば
+高階微分の積分公式が得られそうに思える．それが実際正しいことを
+確かめておこう．
+
+\命題{4.4}
+定理4.2の仮定のもとに
+（閉円板$\overline{D}(c ; R)$上の連続関数$f(z)$に対して，
+積分公式(\ref{eq4x1})が円板内の任意の点$z \in D(c ; R)$で
+成り立っているものとする，）
+\begin{equation}
+	\frac{f^{(n)}(z)}{n!} = \oint_{|\zeta - c| =R} \frac{f ( \zeta )}{( \zeta - z)^{n+1}}
+  \frac{d \zeta}{2 \pi i} \quad (|z - c| < R).
+\label{eq4x5}
+\end{equation}
+
+\証明
+$z$が円板の中心$c$であるとき，
+\[
+	\frac{f^{(n)}(c)}{n!} = \oint_{|\zeta - c| =R} \frac{f ( \zeta )}{( \zeta - c)^{n+1}}
+  \frac{d \zeta}{2 \pi i}
+\]
+この式は(\ref{eq4x3})に他ならない．
+一般の点$z_0$については，その点を中心とした十分小さい円板$|z - z_0|	 \leqq \varepsilon$
+で$f(z)$を考えれば(\ref{eq4x5})において積分路を$|\zeta - z_0| = \varepsilon$としたものが
+成り立つ．そこで積分路を変形して$|\zeta - c|=R$に直せばよい.
+
+\subsection{コーシーの積分公式（一般の領域）}
+
+積分路変形の原理を使うと，円板より一般の領域でもコーシーの積分公式は
+同じ形で成り立つことが次のようにしてわかる．
+
+第3章と同じく，有限個の互いに交わらない滑らかな単純閉曲線によって
+囲まれた領域を$\cal D$，その境界を$\partial {\cal D}$としよう．
+前と同様に境界$\partial {\cal D}$には正の向きを与える．
+関数$f(z)$は$\cal D \cup \partial D$を含む領域上で正則として，
+いま$\cal D$の内部の点$z_0$を中心として周囲までこめて$\cal D$に含まれるように
+閉円板$\overline{D} (z_0 ; R) \subset {\cal D}$を描こう．
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[bb=0 0 800 200,clip,width=8cm,height=5cm]{fig4x1.bmp}
+	\caption{コーシーの積分公式（一般の領域）}
+	\label{fig4x1}
+\end{figure}
+このとき$|z-z_0| < R$ならば，積分路を変形して
+\[
+	\int_{\cal \partial D} \frac{f( \zeta )}{(\zeta - z)^{n+1}} \frac{d \zeta }{2 \pi i}
+= \oint_{|\zeta - z_0|=R } \frac{f( \zeta )}{(\zeta - z)^{n+1}} \frac{ d \zeta }{2 \pi i}
+ \quad (n = 0,1,2, \cdots)
+\]
+が成り立つ．そこで右辺に円の場合の結果を使えば，
+結局次の結論に到達する：
+
+\定理{4.5}（コーシーの積分公式（一般の場合）)
+上の状況のもとに，
+\begin{equation}
+	f(z) = \int_{\cal \partial D} \frac{f( \zeta)}{ \zeta - z} \frac{d \zeta}{2 \pi i}.
+\label{eq4x6}
+\end{equation}
+さらに$f(z)$は$\cal D$で解析的であって，その高階導関数は
+\begin{equation}
+	\frac{f^{(n)}(z)}{n!} = \int_{\cal \partial D} \frac{ f( \zeta)}{(\zeta - z)^{n+1}} \frac{ d \zeta}{2 \pi i}
+\label{eq4x7}
+\end{equation}
+で与えられる．
+
+
+
+（以下，保留）

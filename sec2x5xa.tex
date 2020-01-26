@@ -1,0 +1,29 @@
+\section{初等関数}
+
+
+ここで複素関数としての初等関数の性質をまとめておこう．
+
+\subsection{指数関数}
+
+\定理{2.41}
+指数関数は次の基本性質を持つ．
+\begin{list}{}{}
+	\item	\textbf{オイラーの公式}	$\quad	e^{iz}	=	\cos	z	+	i	\sin	z$
+	\item	\textbf{導関数}					$\quad\quad\quad\quad\:\:	\displaystyle\frac{d}{dz}e^z	=	e^z$
+	\item
+	\item	\textbf{指数法則}				$\quad\quad\quad\:\:\:	e^{z+w}	=	e^ze^w$
+	\item	\textbf{周期性}					$\qquad\qquad\:\:	e^z	=	e^w	\Longleftrightarrow	z	=	w	+	2n\pi	i$	($n$は整数)
+	\item	\textbf{零点の非存在}   \hspace{13pt}すべての$z$に対して	$e^z	\ne	0$
+\end{list}
+\証明
+最初の3つについてはすでに述べた．
+指数法則とオイラーの公式から，$z=x+iy	\quad		(x=	\text{Re } z,	y=	\text{Im } z)$ならば
+\[
+	e^z	=	e^{x+iy}	=	e^x	e^{iy}	=	e^x	(	\cos	y	+	i	\sin	y)
+\]
+すなわちこれが$e^z$の極形式であり，
+\[
+	|e^z|	=	e^{\text{Re }z},	\quad	\arg e^z	=	\text{Im } z	\mod 2\pi.
+\]
+周期性はこの式から明らか．特に$|e^z|	=	e^x	\ne	0$だから，$e^z$は決して零点を持たない．
+\■

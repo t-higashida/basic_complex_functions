@@ -1,0 +1,175 @@
+\subsection{極形式}
+
+複素変数の指数関数は次章であらためて導入するが，記法に早く慣れる目的も
+あって，以下\underline{$\theta$が実数のとき}
+\begin{equation}
+	e^{i\theta}	=	\cos	\theta	+	i	\sin	\theta	\quad	(\theta	\in	\R)	
+	\label{eq1x5}
+\end{equation}
+を積極的に使うことにする．今のところ左辺の意味は右辺を略記する記号である．
+学習の手引き（５）で述べたとおり，この記号によって３角関数の加法定理は
+$e^{i(\theta+\varphi)}=e^{i\theta}	e^{i\varphi}$と書ける．
+また任意の実数$\theta$に対して$\overline{e^{i	\theta}}=e^{-i	\theta}$，
+$|e^{i	\theta}|=1$を満たす複素数は(\ref{eq1x5})の形に書くことができる．
+
+原点$O$から点$P$へ向かうベクトル$\overrightarrow{OP}$が実軸の正の部分から
+反時計回りにはかったときになす角度$\theta$とすれば，$P$が表す複素数$z$は
+\begin{equation}
+	z	=	re^{i	\theta}	=	r(\cos	\theta	+	i\sin	\theta)	\quad	(r	\geqq	0	,	\theta	\in	\R)
+	\label{eq1x6}
+\end{equation}
+と書くことができる．この形を複素数$z$の\textbf{極形式}(polar form)と言う．
+このとき両辺の絶対値を見れば，$	r	=	|z|$は$z$によって一通りに決まる．
+他方$\theta$については，$z	\ne	0$のとき$\theta$を$\theta	+	2n	\pi$（$n$は整数）に
+取り替えるだけの不定性がある．この不定性を除くために例えば$	-	\pi	<	\theta	\leqq	\pi$と
+約束する，というやり方もあるが，そのような既約は便宜的なもの過ぎない．
+($0	\leqq	\theta	<	2	\pi$とすることも多い．また$a	<	\theta	\leqq	a	+	2	n	\pi$
+と約束してもなんら差し支えない．）
+むしろ同じ角度を表すのだから，$\theta$と$\theta	+	2n	\pi$は同じものと
+考えてこれを$z$の\textbf{偏角}(argument)といい，$\arg	z	=	\theta	\:	\mod	2\pi	$
+と表す．なお$z=0$に対しても極形式(\ref{eq1x6})は成り立っているが，このとき
+$\theta$は決めようがないから，$0$の偏角は定義しない．
+
+\問{4}
+次の数の極形式を求めよ．
+
+(1)	$\displaystyle	\frac{1	-	i	\sqrt{3}}{2}$
+
+\解
+\[
+	\text{(与式)}	=	\frac{1}{2}	-	i	\frac{\sqrt{3}}{2}
+								=	\cos	\frac{\pi}{3}	-	i	\sin	\frac{\pi}{3}
+								=	\cos	\frac{-\pi}{3}	+	i	\sin	\frac{-\pi}{3}
+								=	e^{-i	\pi/3}
+\]
+(2)	$(2+2i)^3$
+
+\解
+\begin{align*}
+	\text{(与式)}	&	=	\left(	2	\sqrt{2}	\frac{\sqrt{2}}{2}	+	2	\sqrt{2}	\frac{\sqrt{2}}{2}i	\right)^3
+									=	16	\sqrt{2}	\left(\frac{\sqrt{2}}{2}	+	\frac{\sqrt{2}}{2}i	\right)^3
+									=	16	\sqrt{2}	\left(\cos(\pi/4)	+	i	\sin(\pi/4)	\right)^3	\\
+								&	=	16	\sqrt{2}	\left(\cos(3\pi/4)	+	i	\sin(3\pi/4)	\right)
+									=	16	\sqrt{2}	\:	e^{3\pi	i/4}	\\
+\end{align*}
+(3)	$(1+i)^n	+	(1-i)^n$
+
+\解
+\begin{align*}
+	\text{(与式)}	&	=	\sqrt{2}\:^n	\left(	\frac{1}{\sqrt{2}}	+i	\frac{1}{\sqrt{2}}	\right)^n
+									+	\sqrt{2}\:^n	\left(	\frac{1}{\sqrt{2}}	-i	\frac{1}{\sqrt{2}}	\right)^n
+									=	\sqrt{2}\:^n	\left(	\cos	\frac{\pi}{4}	+i	\sin	\frac{\pi}{4}	\right)^n
+									+	\sqrt{2}\:^n	\left(	\cos	\frac{\pi}{4}	-i	\sin	\frac{\pi}{4}	\right)^n	\\
+								&	=	\sqrt{2}\:^n	\left(	\cos	\frac{\pi}{4}	+i	\sin	\frac{\pi}{4}	\right)^n
+									+	\sqrt{2}\:^n	\left(	\cos	\frac{-\pi}{4}	+i	\sin	\frac{-\pi}{4}	\right)^n	\\
+								&	=	2\:^{n/2}	\left(e^{i	n\pi	/4}	+	e^{-i	n\pi	/4}	\right)	
+									=	2\:^{n/2}	2	\left(e^{i	n\pi	/4}	+	e^{-i	n\pi	/4}	\right)/2	\\
+								&=	2\:^{(n+2)/2}	\cos	\:	n	\pi/4
+\end{align*}
+
+\問{5}
+$z=	re^{i\theta}$のとき$1/(1-z)$の実部・虚部を$r,\theta$で表せ．
+
+\解
+
+（保留）
+\□
+
+極形式を使えば，$z_1	=r_1	e^{i\theta_1},z_2	=	r_2	e^{i	\theta_2}$の積は
+$z_1	z_2=	r_1	r_2	e^{i(\theta_1	+	\theta_2)}$で与えられる．
+すなわち
+\[
+	|z_1z_2|=|z_1||z_2|,	\quad
+	\arg	(z_1	z_2)	=	\arg	z_1	+	\arg	z_2	\quad
+	(\mod	2	\pi)
+\]
+幾何学的には，$z_2$を$z_1$倍するという操作は，$z_2$の表すベクトルを$|z_1|$倍に
+相似拡大し，さらに$\arg	z_1$だけ反時計回りに回転することを意味している．
+
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[bb=0 0 800 600,clip,width=5cm,height=4cm]{fig1x3.bmp}
+	\caption{複素数の極形式と積}
+	\label{fig1x3}
+\end{figure}
+一般に$z_k = r_k ( \cos \theta_k + i \sin \theta_k),\: k=1,2,3, \cdots ,n$とすると，
+\[
+  z_1 z_2 \cdots z_n = r_1r_2 \cdots r_n(\cos (\theta_1 + \theta_2 + \cdots + \theta_n)
+ + i \sin( \theta_1 + \theta_2 + \cdots + \theta_n))
+\]
+である．とくに$z_1=z_2= \cdots = z_n=z$のとき，
+\[
+  z^n = r^n (\cos (n\theta) + \sin (n \theta)) \qquad \textbf{(de Moivreの公式)}
+\]
+$\alpha \ne 0$に対し，
+$z^n = \alpha$を満たす$z$を$\alpha$の$n$乗根という．$\alpha = r (\cos \theta + i\sin \theta) \quad 0 \leqq \theta < 2 \pi$
+とおくと，
+\[
+ \zeta_k = r^{1/n} \left( \cos \frac{\theta + 2 k \pi}{n} + \sin \frac{\theta + 2 k \pi}{n} \right)
+ \quad k = 0 ,1, 2, \cdots , n-1
+\]
+が$\alpha$の$n$乗根になる．
+
+\問{6}
+
+自然数$n$に対して$1$の$n$乗根となる複素数$z^n=1$をすべて求めよ．
+
+\解
+$z=r	e^{i	\theta}$とおくと，
+\begin{align*}
+	z^n	&	=	(r	e^{i	\theta})^n	=	r^n	(\cos	\theta	+	i	\sin	\theta)^n \\
+      &  = r^n	(\cos	n \theta	+	i	\sin	n \theta) \\
+			&	=	1
+\end{align*}
+$|z|=1$より$r=1$，$\cos n \theta =1$ かつ $\sin n \theta= 0$より，
+$\theta = 2 k \pi / n \: (k=0,1, \cdots , n-1)$，よって
+\begin{align*}
+ z &= w^k, \\
+ w &= e^{\frac{2 \pi i }{n}} = \cos \frac{2k\pi}{n} + i \sin \frac{2k\pi}{n}
+                                         , \quad ( 0 \leqq  k \leqq n-1) 
+\end{align*}
+
+\例題{1.3}
+相異なる3点$\alpha, \beta, \gamma$が正三角形をなす為の必要十分条件は
+\[	
+	\alpha^2	+	\beta^2	+	\gamma^2	=	\alpha\beta+\beta\gamma+\gamma\alpha
+\] 
+であることを示せ．
+
+\解
+条件は，ベクトル$\gamma	-	\alpha	$が$\beta	-	\alpha$を$\pm	\pi	/	3$回転したベクトルと
+一致すること，といえる．すなわち$\gamma	-	\alpha	=	\omega	(\beta	-	\alpha)$と書くとき
+\[
+	\omega=e^{\pm	\pi	i	/3}	=	\frac{1	\pm	i	\sqrt{3}}{2}.
+\]
+これは$\omega^2	-	\omega	+1=0$と同値だから，上の式から$\omega$を消去すれば
+\[
+	\left(\frac{\gamma	-	\alpha}{\beta	-	\alpha}	\right)^2
+	-\left(\frac{\gamma	-	\alpha}{\beta	-	\alpha}	\right)
+	+1
+	=0.
+\]
+これを整理すれば
+\begin{align*}
+	&(\gamma	-	\alpha)^2	-(\gamma	-	\alpha)(\beta	-	\alpha)	+	(\beta	-	\alpha)^2	\\
+	&=
+	(\gamma^2	-	2\gamma\alpha	+	\alpha^2)
+	-
+	(\gamma\beta	-	\gamma\alpha	-\alpha\beta	+	\alpha^2)
+	+
+	(\beta^2	-	2	\beta	\alpha	+	\alpha^2)	\\
+	&=
+	\gamma^2	-	\gamma\alpha	+	\alpha^2
+	-
+	\gamma\beta
+	+
+	\beta^2	-		\beta	\alpha	\\
+	&=0	\\
+\end{align*}
+求める式を得る．
+\■
+
+多くの点で複素数は実数とほぼ並行した扱いができる．ただし一つの違いとして，
+複素数の間には意味のある大小関係を定めることができないことに注意しておきたい．
+実数の場合に大小を比べることができるのは，直線上では左右の区別があるという本質的に１次元的な
+特性に基づいているのである．

@@ -1,0 +1,333 @@
+\section{微分可能な関数}
+
+\subsection{複素可能の微分とは}
+
+複素関数の微分の定義については，すでに前章で簡単にふれた．
+関数$f(z)$が或る点$z$で微分可能であるというのは，
+$h$が$0$でない複素数を動きつつ$0$に近づくとき，
+近づき方にはよらず一定の極限が
+\begin{equation}
+	\lim_{h \rightarrow \infty} \frac{f(z+h) - f(z)}{h}
+\label{eq3x8}
+\end{equation}
+が存在するということをいうのであった．これは実変数の微分の定義に
+おいて形式的に$h$の動く範囲を複素数にしただけで，
+まったく自然なものに見える．
+一方実部・虚部を2次つ変数の関数とみれば，実変数関数として微分可能という
+概念が別にある．この節に限って，便宜上
+(\ref{eq3x8})の意味で微分可能ということを「複素微分可能」，
+実関数の意味で微分可能ということを「実微分可能」ということに約束しよう．
+では複素関数が複素微分可能ということと，
+その実部・虚部が実微分可能であるということは同じことなのだろうか？
+
+\例{3.3}
+$f(z) = \overline{z} =x -iy$は文句なく滑らかな関数であり，
+実部・虚部は何回でも実微分可能である．いま$h=|h| e^{i \theta}$と書けば
+\[
+	\frac{\overline{(z+h)} - \overline{z}}{h}
+ =\frac{\overline{h}}{h} = e^{-2i \theta}
+ =\frac{|h| e^{-i\theta}}{|h| e^{i\theta}} 
+ = e^{-2i \theta}
+\]
+ここで$h \rightarrow 0$というのは定義によって
+$|h| \rightarrow 0$のことを意味する．
+しかし$\theta$は$|h|$に無関係に変えることができるから，
+右辺は$h \rightarrow 0$で確定した極限を持たない．
+ゆえに関数$f(z) = \overline{z}$はいかなる点でも
+複素微分可能ではない．
+\□
+
+このような簡単な関数さえ微分可能でないとすると，
+「複素関数として微分可能性」は何を意味しているのだろうか？
+
+\subsection{コーシー-リーマンの関係式}
+
+状況を理解するために，まず実変数の場合の微分の概念を
+復習してみよう．1実変数$x$の実数値関数$u(x)$が
+$x=x_0$で微分可能とは，その点の近くで$u(x)$が近似的に
+1次関数で表されることを意味する．
+すなわち，定数$a$を適当に選ぶと
+\[
+	u(x) = u(x_0) + ah + \epsilon(h,x_0) \quad
+ (h = x- x_0)
+\]
+とおいたときの誤差$\epsilon(h,x_0)$が$h$より高位の
+無限小となる
+（つまり，$h \rightarrow 0$のとき$\epsilon(h,x_0) / h \rightarrow 0$
+が成り立つ）ことを言う．このとき係数$a$は
+\[
+	\lim_{h \rightarrow 0}
+   \frac{u(x_0 + h) - u (x_0) }{h}
+= \lim_{h \rightarrow 0}
+    \left(
+        a + \frac{\epsilon (h,x_0)}{h}
+    \right)
+    = a
+\]
+によって定まり，これを$x_0$における微分係数
+$\displaystyle \frac{du}{dx}(x_0)$というのだった．
+以後高位の無限小はランダウの記号$o$記号を用いて
+\[
+	u(x) = u(x_0) +a (x-x_0) + o(|x-x_0|) \quad (x \rightarrow x_0)
+\]
+のように表す．
+
+同様に，2実変数の関数$u(x,y)$が$x=x_0,y=y_0$で微分可能とは，
+その点の近くで1次近似式
+\[
+	u(x,y) = u(x_0,y_0) + a(x-x_0) + b(y-y_0) + o(\sqrt{|x-x_0|^2 + |y-y_0|^2})
+\]
+が成り立つことである．このとき係数$a,b$は偏微分係数によって
+\[
+	a= \frac{\partial u}{\partial x} (x_0 , y_0),
+  \quad
+	b= \frac{\partial u}{\partial y} (x_0 , y_0),
+\]
+と表される．
+
+まったく同様にして，$f(z)$が$z_0 = x_0 + iy_0$において
+複素微分可能とは1次近似式
+\[
+	f(z) =f(z_0) + \alpha (z-z_0) + o(|z - z_0|),
+  \quad
+  \alpha = \frac{df}{dz} (z_0)
+\]
+が成り立つことと同値である．
+今$\alpha = a + ib$とおいてこの関係を
+実部・虚部に分けて書き下せば
+\begin{align*}
+	u(x,y) &= u(x_0 , y_0) + a (x-x_0) - b(y-y_0)
+ + o (\sqrt{|x-x_0|^2 + | y - y_0|^2}), \\
+	v(x,y) &= v(x_0 , y_0) + b (x-x_0) + a(y-y_0)
+ + o (\sqrt{|x-x_0|^2 + | y - y_0|^2})
+\end{align*}
+が得られる．これらの式は，
+\begin{list}{}{}
+	\item	(ⅰ) $u(x,y), v(x,y)$がともに点$(x_0, y_0)$において微分可能であり，
+	\item (ⅱ) さらにその点における偏微分係数の間に関係式
+\begin{equation}
+	\frac{\partial u}{\partial x} (x,y) = \frac{\partial v}{\partial y}(x,y),
+  \quad
+  \frac{\partial u}{\partial y}(x,y) = -\frac{\partial v}{\partial x}(x,y)	
+\label{eq3x9}
+\end{equation}
+
+\end{list}
+が成り立つことを意味する（2式の$a,b$の部分に注目）．
+記号$\partial / \partial \overline{z}$を用いると
+(\ref{eq3x5})から(\ref{eq3x9})は簡潔に
+\begin{equation}
+	\frac{\partial f}{\partial \overline{z}}(z) = 0
+\label{eq3x10}
+\end{equation}
+とまとめられる．(\ref{eq3x9})あるいは(\ref{eq3x10})を
+\textbf{コーシー-リーマンの関係式}と呼ぶ．
+(\ref{eq3x9})が成り立つとき，微分係数$df/dz$は
+(\ref{eq3x4})を使えば
+\begin{align}
+	\frac{d f}{d z}(z) = \alpha 
+ &= a + ib \notag \\
+ &= \frac{\partial u}{\partial x} - i \frac{\partial u}{\partial y} \notag\\
+ &= \frac{\partial v}{\partial y} + i \frac{\partial v}{\partial x} \notag\\
+ &=   \frac{1}{2} \left( \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} \right)
+    -i\frac{1}{2} \left( \frac{\partial u}{\partial y} - \frac{\partial v}{\partial x} \right) \notag\\
+ &= \frac{\partial f}{\partial z}(z)
+\label{eq3x11}	
+\end{align}
+と書くことができる．上の議論を逆にたどれば，結局次のことがわかる．
+
+\定理{3.4}
+$f(z)$が複素関数の意味で微分可能であるための必要十分条件は，
+その実部・虚部のが実関数の意味で微分可能で，
+かつコーシー-リーマンの関係式(\ref{eq3x10})が成り立つことである．
+\□
+
+1点だけ微分可能という概念はあまり有用ではないので，次の用語を設ける．
+
+\定義{3.5}
+領域${\cal D}$で定義された関数$f(z)$が\textbf{正則}
+（holomorphic）であるとは，それが$C^1$級であって，複素関数として
+微分関数であるということをいう．
+\□
+
+ただし$u(x,y)$が$C^1$級であるとは，それが微分可能で
+偏導関数$ \partial u / \partial x$，$\partial u / \partial y$が
+連続であること，また複素関数$f(z) = u(x,y) + iv (x,y)$が
+$C^1$級であるとは，実部$u(x,y)$，虚部$v(x,y)$がともに$C^1$級であることを
+言う．
+
+定義から，${\cal D}$上で$f'(z)=0$を満たす正則関数は定数に限る．
+実際(\ref{eq3x11})より$u(x,y),v(x,y)$の導関数がすべて$0$になるからである．
+
+\注意{3.6}
+実は「領域の各点で(複素)微分可能」というだけの条件から
+$C^1$級であることが導かれる．その証明は例えば，講座現代数学の基礎
+「複素解析」を参照していただきたい．そのため，
+伝統的には正則関数を定義する際「$C^1$級」という条件をつけないのが普通である．
+
+\例題{3.7}
+対数関数の主値(\ref{eq2x38})は領域${\cal D}_0 = \C \setminus (-\infty,0]$で
+正則である．
+したがって，べき関数$z^\alpha = e^{\alpha \Log z}$も同じ領域で正則である．
+
+\解
+$\Log z = \log r + i \theta \: (z = r e^{i \theta}) $は$r > 0, \: -\pi < \theta < \pi$
+で$C^1$級である．微分法の変数変換の公式（本シリーズ『微分と積分2』)
+極座標$x = r \cos \theta, y = r \sin \theta$で表すと
+\[
+	\frac{\partial }{\partial x}
+   =
+  \cos \theta \frac{\partial }{\partial r}
+  - \frac{\sin \theta}{r} \frac{\partial }{\partial \theta},
+  \quad
+	\frac{\partial }{\partial y}
+   =  
+  \sin \theta \frac{\partial }{\partial r}
+  + \frac{\cos \theta}{r} \frac{\partial }{\partial \theta},
+\]
+\footnote{
+\begin{align*}
+&\frac{\partial }{\partial r} = \cos \theta\frac{\partial }{\partial x}
+                              +\sin \theta\frac{\partial }{\partial y},
+\quad
+\frac{\partial }{\partial \theta} = (-r\sin \theta) \frac{\partial}{\partial x}
+                              +\ (r \cos \theta) \frac{\partial }{\partial y}\\
+\end{align*}
+より各$\displaystyle \frac{\partial }{\partial x},\frac{\partial }{\partial y}$
+を計算できる．
+}
+が成り立つ．
+\begin{align*}
+	\frac{\partial }{\partial \overline{z}} \Log z
+  &= \frac{1}{2}
+  \left(
+    \frac{\partial }{\partial x} + i\frac{\partial }{\partial y}
+  \right)
+  ( \log r + i\theta)\\
+  &= \frac{1}{2}
+  \left(
+     \cos \theta       \frac{\partial }{\partial r} 
+   - \frac{\sin \theta}{r}  \frac{\partial }{\partial \theta}
+   +i \sin \theta \frac{\partial }{\partial r} 
+   +i \frac{\cos \theta}{r} \frac{\partial }{\partial \theta}
+  \right)(\log r + i \theta)\\
+  &=
+  \frac{1}{2} e^{i \theta}
+  \left( \frac{\partial }{\partial r} + \frac{i}{r}\frac{\partial }{\partial \theta}
+	\right)
+  ( \log r + i \theta) \\
+  &=
+  \frac{1}{2} e^{i \theta}
+  \left(	
+    \frac{1}{r} +  \frac{i}{r}i
+  \right)
+ =0	
+\end{align*}
+よってコーシー-リーマンの関係式が成り立つ．
+\■
+
+\問{1}
+極座標をつかって$\displaystyle \frac{d \Log z}{dz} = \frac{1}{z}$を示せ．
+
+（中略）
+
+\例題{3.8}
+ある領域で正則な多項式$f(z)= P(z,\overline{z})$は
+$z$だけの多項式に限ることを示せ．
+
+\解
+$P(z,\overline{z})$を$\overline{z}$について整理し
+\[
+	f(z) = P_0(z) + P_1(z) \overline{z} + \cdots + P_N (z) \overline{z}^N
+\]
+と書こう．コーシー-リーマンの関係式
+(\ref{eq3x10})によって$N \geqq 1$なる限り
+\[
+	P_N(z) = \frac{1}{N!} \left(  \frac{\partial }{\partial \overline{z}}
+                        \right)^N f(z) \equiv 0.
+\]
+したがって(\ref{eq3x12})においてはじめから$N$の代わりに
+$N-1$を使うことができ，上の論法で$P_{N-1}(z)=0$が言える．
+これを繰り返せば$P_1(z) =\cdots =P_N(z)=0$となって結局
+$f(z)=P_0(z)$は$z$だけの多項式である．
+ⅰ変数の複素かんすを扱っていたはずなのに，一般の複素関数を
+考えたときいつのまにか2変数多項式$P(z,\overline{z})$が紛れ込んできた．
+このうち（複素）微分可能なものが1変数$z$だけの多項式なのである．
+\■
+
+\問{2}
+$f(z)$が正則ならば$\overline{f(\overline{z})}$も正則であることを示せ．
+
+\証明
+$f(z) = u(x,y) + iv(x,y), \overline{f(\overline{z})} = U(x,y) + i V(x,y)$とおけば，
+$U(x,y) = u(x,-y) , V(x,y) = -v(x,-y)$．これより
+\[
+	\frac{\partial }{\partial y} U(x,y) 
+= - \frac{\partial u}{\partial y}(x,-y)
+= - \frac{\partial v}{\partial x}(x,-y)
+= - \frac{\partial }{\partial x}V(x,-y)
+\]
+同様にしてコーシー-リーマンの関係式が確かめられる．
+\■
+
+正則関数の条件が，実部・虚部の滑らかさだけでなく微分方程式
+(\ref{eq3x10})を要求していることを再度強調しておきたい．
+そのために実部・虚部は勝手な関数にはなり得ない．
+
+\問{3}
+正則関数$f(z)=u(x,y) + iv(x,y)$が2回連続的微分可能とする
+（実は正則関数はつねに何回でも微分可能になるので，
+この仮定は必要ない）．このとき実部$u(x,y)$，虚部$v(x,y)$は共に
+\textbf{ラブラス(Laplace)の方程式}
+\[
+	\frac{\partial ^2 u}{\partial x^2} +
+	\frac{\partial ^2 u}{\partial y^2} =0
+\]
+を満たすことを示せ．
+
+（保留）
+
+\問{4} $u(x,y) = x^n$が正則関数の実部となるような自然数$n$と，
+それに対応する正則関数$f(z)$をすべて求めよ．
+
+\解
+$ \partial ^2 u/\partial x^2 = 0$より$n=0(f(z)=1+ iC)$または$n=1 ( f(z) = z+iC)$，
+ただし$C$は実数．
+
+\■
+
+\例{3.9}
+領域上で実数値をとる正則関数は定数に限る．実際，虚部が恒等的に
+$0$とすればコーシー-リーマンの関係式(\ref{eq3x9})から実部
+$u(x,y)$は
+\[
+	\frac{\partial u}{\partial x}(x,y)=0, \quad
+	\frac{\partial u}{\partial y}(x,y)=0, \quad
+\]
+を満たし，したがって定数となる．
+
+\問{5}
+次の関数は正則か? ($k$は実の定数とする．)
+
+(1) $x^2 + iy$
+
+(2) $(x^2 - y^2 + 3x) + i(2xy + 3y)$
+
+(3) $\displaystyle \frac{x+k-y}{x^2 + y^2 + 2x + 1}$
+
+\例題{3.10}
+領域${\cal D}$上の正則関数$f(z)$に対し$|f(z)|=C$が定数ならば，
+実は$f(z)$自身が定数である．
+
+\解
+$C=0$のときは明らかなので$C \ne 0$としよう．
+仮定によって
+\[
+	0 = \frac{\partial }{\partial \overline{z}} | f(z)|^2
+= \frac{\partial }{\partial \overline{z}} (f(z) \overline{f(z)})
+= f(z) \frac{\partial }{\partial \overline{z}} \overline{f(z)}
+= f(z) \overline{f'(z)}.
+\]
+ただし(\ref{eq3x7})を用いた．ここで$|f(z)| = C \ne 0$だから
+$f'(z)=0$が${\cal D}$上で成り立つ．ゆえに$f(z)$は定数に等しい．
+\■

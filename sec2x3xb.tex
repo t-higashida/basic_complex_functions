@@ -1,0 +1,68 @@
+\subsection{べき級数の合成}
+
+2つの収束べき級数$f(z),g(w)$があって$f(z)$が$z$の1次から始まるとしよう．
+$f(0)=0$だから，十分に小さい$|z|$については$w=f(z)$は$g(w)$の収束円内に
+入り，合成$g(f(z))$を考えることができる．いま
+\[
+	f(z)=a_1	z	+	a_2	z^2	+	a_3	z^3	+	\cdots	,
+	\quad
+	g(w)=b_0	+	b_2	w	+	b_2	w^2	+b_3	w^3	+	\cdots
+\]
+とすれば，形式的に代入した級数$g(f(z))$の$z$の各べきの係数は順に有限の手続きで
+決まってゆく．すなわち
+\begin{align*}
+	&b_0+b_1(a_1z	+	a_2	z^2	+	a_3	z^3	+	\cdots)	+	b_2(	a_1z+a_2z^2	+a_3z^3+\cdots	)^2	\\
+	&	\quad	+	b_3(a_1	z+a_2z^2	+	a_3z^3+\cdots	)^3	+	\cdots	\\
+	&=c_0	+	c_1z	+c_2	z^2+c_3	z^3	+	\cdots
+\end{align*}
+とおけば
+\begin{align}
+	c_0	&=b_0,	\quad	c_1	=	b_1	a_1,	\quad	c_2	=	b_1a_2	+	b_2	a_1^2,	\notag	\\
+	c_3	&=b_1a_3	+2b_2a_1a_2	+	b_3		a_1^3,	
+		\label{eq2x27}	\\
+	c_4	&=	b_1a_4	+	b_2(2a_1	a_3	+	a_2^2)	+	3	b_3	a_1^2	a_2	+	b_4	a_1^4,	\cdots	\notag
+\end{align}
+
+\定理{2.26}
+上に定めた級数$h(z)	=	\sum_{n=0}^{\infty}	c_n	z^n$は十分に小さい$r>0$に対し$|z|<r$で絶対収束して
+合成関数$g(f(z))$に等しい．
+
+証明は付録で紹介する（定理A.2）
+
+\問{6}
+次の級数展開を$z^4$まで計算せよ：
+
+(1)$(1-2	z	\cos	\theta	+	z^2)^\alpha$.
+
+(2)$e^{-xz/(1-z)}$.
+
+(3)$\cos	(a	z	/	\sqrt{1+z})$.
+
+(保留)
+
+\例題{2.27}
+\begin{equation}
+	e^{\alpha	\log	(1	+	z)}	=	(1+z)^\alpha	\quad	(|z|	<	1)
+	\label{eq2x28}
+\end{equation}
+を示せ．
+
+\解
+
+$g(w)	=	e^w	$は収束半径$\infty$であるから，$f(z)=\alpha	\log	(1+z)$の収束円
+$|z|<1$の中では合成が意味を持っている．実際に展開してみれば
+\begin{align*}
+	1	&+	\left(\alpha z	-	\frac{\alpha z^2}{2}	+	\frac{\alpha	z^3}{3}	-	\cdots 	\right)
+		+	\frac{1}{2!}	\left(\alpha	z	-	\frac{\alpha	z^2}{2}	+	\cdots	\right)^2	+	\cdots
+		+	\frac{1}{3!}	\left(\alpha	z	-	\cdots	\right)^3	\cdots	\\
+		&=	1	+	\alpha	z	+	\frac{\alpha (\alpha -1)}{2}	z^2	+	\frac{\alpha (\alpha -1)(\alpha -2)}{6}z^3	+	\cdots
+\end{align*}
+が確かめられるが，一般項を計算するのは容易ではない．そこで，$h(z)=g(f(z))$を微分してみると
+\[
+	h'(z)	=g'(f(z))	f'(z)	=	h(z)	\frac{\alpha}{1+z}
+\]
+となる．$h(z)$はべき級数展開を持つことが定理2.26により保証されているから，
+これと$h(0)=1$をあわせれば例2.25の論法により（保留）
+求められる関係を得る．
+\■
+

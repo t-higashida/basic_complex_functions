@@ -1,0 +1,108 @@
+\section{無限積と因数分解}
+
+	学習の手引きに述べたように，オイラーは$\sin	z$の零点が$z=0	,	\pm	\pi,	\pm	2\pi,	\cdots$
+で与えられることに注目して，その因数分解の公式を発見した．この節でその証明を述べる．
+
+\subsection{無限積}
+
+まず無限積の定義と性質についてまとめておこう．複素数列$a_1,	a_2,	\cdots$の無限積
+$\displaystyle	\prod_{n=1}^\infty	a_n$とは，部分積の極限$\lim_{n\rightarrow	\infty}a_1a_2	\cdots	a_n$
+と定めるのが自然であるように思える．しかしこうすると，$\{a_n\}_{n=1}^\infty$の中に
+１つでも$0$の項が現れたら，その他のがどうであっても常に極限は$0$となってしまい，あまり意味がない．
+そこで無限積の収束を次のように定義する：
+
+\定義{5.9}
+無限積$\prod_{n=1}^\infty	a_n$が収束するとは，次の2つの条件が成り立つことと定める．
+\begin{list}{}{}
+	\item	（ⅰ）ある番号$N$から先は$a_n	\ne	0	\:	\quad	(n	\geqq	N),$
+	\item	（ⅱ）部分積の極限$\displaystyle	\lim_{m\rightarrow	\infty}	\prod_{n=N}^m	a_n$が存在して\textbf{零でない}.
+\end{list}
+このとき無限積の値を
+\[
+	\prod_{n=1}^\infty	a_n	=	\prod_{n=1}^{N-1}	a_n	\times	\lim_{m	\rightarrow	\infty}	\prod_{n=N}^m	a_n
+\]
+によって定める．
+
+定義から，無限積が収束するかどうかは最初の有限項には無関係である．
+また収束するならば$a_m	=\prod_{n=N}^m	a_n	/	\prod_{n=N}^{m-1}	a_n	\rightarrow	1	(m	\rightarrow	\infty)$
+でなければならない．そこで以下では$a_n	=	1+	u_n$とおいて
+\begin{equation}
+	\prod_{n=0}^{\infty}	(1	+	u_n)
+	\label{eq5x7}
+\end{equation}
+の形で扱うことにする．
+これが収束するならば$u_n	\rightarrow	0$である．
+
+対数をとれば(\ref{eq5x7})の収束は無限和$\displaystyle	\sum_{n=1}^\infty	\log	(1+u_n)$の話に
+帰着しそうだが
+\footnote{\small
+$u=e^x,v=e^y$とおくと$uv=e^xe^y=e^{x+y}$，え
+$\log	uv	=	x+y	=	\log	x	+	\log	y$，$\log	\prod	=	\sum	\log$．
+再度指数をとると，$\prod	=	e^{\Sigma	\log}$
+}
+，$\log$の分岐をどう選ぶかに注意が必要である．この方針が円滑に運ぶための
+十分条件を考えよう．
+
+\定義{5.10}
+無限級数$\displaystyle	\sum_{n=1}^{\infty}	u_n$が絶対収束するとき，無限積(\ref{eq5x7})は
+絶対収束するという．
+\footnote{
+\small
+『複素解析概論』野口潤次郎著の§2.6では，定義の妥当性と述べられる考察と定理(2.6.2)を経た定義も確認しておく．
+
+無限乗積$\prod_{n=0}^{\infty}(1+z_n)$が\textbf{絶対収束}することを，十分におおきな$n_0$に対し
+\[
+	\sum_{j=n_0}^{\infty}|\log	(1+z_j)|	<	+	\infty
+\]
+と定義する．
+}
+\□
+
+\命題{5.11}
+無限積(\ref{eq5x7})が絶対収束すれば定義5.9の意味で収束する．
+
+\注意{}
+無限級数の絶対収束の場合と違い，無限乗積の絶対収束の定義は，無限級数の絶対収束に一度迂遠している．
+
+\証明
+仮定と定義5.10より$u_n	\rightarrow	0$であるから，ある$N$から先の番号$n	\geqq	N$で
+$|	u_n	|	\leqq	1/2$が成り立つ．一方，主値$\Log (1+z)$の級数展開(\ref{eq2x14})を利用すれば，
+$|u|	\leqq	1/2$のときの評価
+\begin{equation}
+	|\Log (1+u)| \stackrel{\tiny(\ref{eq2x14})}{\leqq}	\sum_{n=1}^{\infty}	\frac{|u|^n}{n}	
+							\leqq	\sum_{n=1}^{\infty}	|u|^n
+							=	\frac{|u|}{1-|u|}	\leqq	2|u|
+	\label{eq5x8}
+\end{equation}
+が成り立つ．$u_n	\rightarrow	0$のとき$2u_n	\rightarrow	0$であり
+したがって
+\[
+	\sum_{n=N}^{\infty}	|\Log	(1+u_n)|	
+	\leqq	
+	\sum_{n=N}^{\infty}	2|u_n|
+	<
+	\sum_{n=0}^{\infty}	2|u_n|
+\]
+であるが，再び仮定より$\sum_{n=0}^{\infty}	|u_n|$は絶対収束するので，
+$\sum_{n=N}^{\infty}	\Log	(1+u_n)$は絶対収束し，
+\[
+	\lim_{m\rightarrow	\infty}	\prod_{n=N}^{m}	(1+u_n)
+	=
+	\lim_{m\rightarrow	\infty}
+	\exp	\left(	\sum_{n=N}^{m}	\Log	(1+u_n)
+				\right)	
+	=	
+	\exp	\left(	\sum_{n=N}^{\infty}	\Log	(1+u_n)
+				\right)
+\]
+は存在して零でない．\■
+
+証明からわかるように，絶対収束の場合，$N$を十分に大きくとれば級数
+$\sum_{n=N}^{\infty}	\Log	(1+u_n)$が絶対収束するので，無限積の性質は
+絶対収束級数の性質に帰着する．特に次のことは明らかだろう．
+
+\begin{list}{}{}
+	\item（ⅰ）絶対収束するとき積の順序を変更しても無限席の値は変わらない．
+	\item（ⅱ）$P=\sum_{n=1}^{\infty}(1+u_n)$，$Q=\sum_{n=1}^{\infty}(1+v_n)$が絶対収束すれば，
+							$\prod_{n=1}^{\infty}(1+u_n)(1+v_n)$も絶対収束であってその値は$PQ$に等しい．
+\end{list}

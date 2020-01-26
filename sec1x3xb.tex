@@ -1,0 +1,79 @@
+\subsection{級数の収束}
+複素数の無限級数
+\begin{equation}
+	\sum_{n=0}^\infty	\alpha_n	=	\alpha_1	+	\alpha_2	+	\cdots
+	\label{eq1x9}
+\end{equation}
+に対する収束の定義も，実数の場合と同様である．すなわち，初めから順に
+とっていた部分和の列$S_n	=	\alpha_0	+	\cdots	+	\alpha_n	\:	(n	=	0,1,2,	\cdots	)$
+がある複素数$S$に収束するとき，(\ref{eq1x9})は$S$に収束する，あるいは和$S$を持つ，
+などと言い，
+\[
+ \lim_{n \rightarrow \infty} S_n = \sum_{n=1}^\infty z_n = S
+\]
+と書く．
+
+級数の収束を数列の収束の特別な場合として定めたが，逆にどんな数列
+$\{\alpha_n\}_{n=1}^\infty$についても，$\beta_n	=	\alpha_{n+1}	-	\alpha_n	\:	(\alpha_0	=	0)$
+とおけば一般項を級数の部分和$\alpha_n	=	\sum_{k=0}^{n-1}	\beta_k$の形に書くことができる．
+だから級数の収束を論じるのと数列の収束を論じるのとは実質的に同じことである．
+
+コーシーの判定条件を級数について言い換えることが次の形になる．
+
+\定理{1.8}
+級数$\sum_{n=0}^\infty	\alpha_n	$が収束するための必要十分条件は，
+\[
+	\lim_{N\rightarrow	\infty}	\sup_{p	>	0	}	|\alpha_{N+1}	+	\cdots	+	\alpha_{N+p}|	=	0
+\]
+が成り立つことである．言い換えれば
+\[
+  \forall \varepsilon > 0, \exists n_0 , n_0 \leqq n < m \: \Rightarrow \left|\sum_{k=n}^m \alpha_k \right|
+  < \varepsilon
+\]
+が成り立つことである．
+\□
+特に$\displaystyle	\sum_{n=0}^\infty	\alpha_n$が収束するならば
+$\displaystyle	\lim_{n	\rightarrow	\infty}	\alpha_n	=	0$であるが，逆は必ずしも正しくない．
+
+\例{1.9}	\textbf{等比級数}	(geometric series,本書では\textbf{幾何級数}という）
+\begin{equation}
+	\sum_{n=0}^\infty	z^n	=	\frac{1}{1-z}	\quad	(|z|	<	1).
+	\label{eq1x10}
+\end{equation}
+この式は恒等式$(1-z)(1+z	+	\cdots	+	z^{n-1})=1-z^n$において
+$\displaystyle	\lim_{n	\rightarrow	\infty}	|z|^n	=	0	\:	(|z|	<	1)$に注意すれば導かれる．
+公式(\ref{eq1x10})は形式的には実数の場合とまったく同様であるが，
+$z=re^{i	\theta}	(0	\leqq	r	<	1)$とおいて実部・虚部を取ってみると，
+次の内容を表していることがわかる．
+\[
+	\sum_{n=0}^\infty	r^n	\cos	n	\theta
+	=
+	\frac{1	-	r	\cos	\theta}{1	-	2	r	\cos	\theta	+	r^2},
+	\quad
+	\sum_{n=0}^\infty	r^n	\sin	n	\theta
+	=
+	\frac{r	\sin	\theta}{1	-	2	r	\cos	\theta	+	r^2}
+\]
+\証明
+左辺は，
+\begin{align*}
+	\sum_{n=0}^N	z^n	
+		&	=	\sum_{n=0}^N	r^n	(	\cos	\theta	+	i	\sin	\theta)^n
+			=	\sum_{n=0}^N	r^n	(	\cos	n	\theta	+	i	\sin	n	\theta)
+			=	\sum_{n=0}^N	r^n	\cos	n	\theta	+	\sum_{n=0}^N+	r^n	i	\sin	n	\theta
+\end{align*}
+一方右辺は，
+\begin{align*}
+	\frac{1}{1-z}	&	=	\frac{1}{1-r(\cos	\theta	+	i	\sin	\theta)}
+									=	\frac{(1-r	\cos	\theta)	+	i	r\sin	\theta}{
+											\{(1-r	\cos	\theta)+	i	r\sin	\theta\}\{(1-r	\cos	\theta)-	i	r\sin	\theta\}}	\\
+								&	=	\frac{(1-r	\cos	\theta)	+	i	r	\sin	\theta}{
+											(1-r	\cos	\theta)^2	+	r^2	\sin^2	\theta}
+									=	\frac{(1-r	\cos	\theta)	+	i	\sin	\theta}{
+											1-	2	r	\cos	\theta	+	r^2}	\\
+								&	=	\frac{1-r	\cos	\theta}{
+											1-	2	r	\cos	\theta	+	r^2}
+										+	\frac{	i	\sin	\theta}{
+											1-	2	r	\cos	\theta	+	r^2}	\\
+\end{align*}
+\■

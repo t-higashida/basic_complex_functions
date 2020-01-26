@@ -1,0 +1,299 @@
+\subsection{絶対収束}
+不等式$|\alpha_{N+1}	+	\cdots	+	\alpha_{N+p}	|	\leqq	|\alpha_{N+1}|	+	\cdots	|\alpha_{N+p}|$
+によって，
+$\sum_{n=0}^\infty	\alpha_n$と$\sum_{n=0}^N	\alpha $との誤差$|\alpha_{N+1}	+	\cdots	+	\alpha_{N+p}	|$
+の触れ方は，$\sum_{n=0}^\infty	|\alpha_n|$と$\sum_{n=0}^N	|\alpha_n|$とのそれを超えない．
+だから$\sum_{n=0}^\infty	|\alpha |$が収束すれば，$\sum_{n=0}^\infty	\alpha$も収束する． 
+
+\定義{1.10}
+級数$\sum_{n=0}^\infty	\alpha _n$が条件$\sum_{n=0}^\infty	|\alpha_n	|	<	\infty$を満たすとき，
+\textbf{絶対収束}する(abusolutely convergent)という．
+\□
+絶対収束級数は単に収束するだけでなく，その取り扱いが自由にできる点に重要性がある．以下にあげる
+性質は実数の場合と同様に，あるいはその場合に帰着させて示すことができる
+（本シリーズ『微分と積分１』第４章』参照）．
+
+\定理{1.11}
+$\sum_{n=0}^\infty	\alpha_n$，$\sum_{n=0}^\infty	\beta$が収束するとき，
+\begin{equation}
+	\sum_{n=0}^\infty	(\alpha_n	\pm	\beta _n)	=	\sum_{n=0}^\infty	\alpha_n	\pm	\sum_{n=0}^\infty	\beta_n,
+	\quad	\sum_{n=0}^\infty	\gamma	\alpha _n	=	\gamma \sum_{n=0}^\infty	\alpha _n,
+	\label{eq1x11}
+\end{equation}
+また両者が絶対収束なら
+\begin{align}
+	\left(\sum_{n=0}^\infty\alpha _n	\right)\left(\sum_{n=0}^\infty\beta _n	\right)
+	=
+	\sum_{n=0}^\infty	\left(	\sum_{k=0}^n	\alpha _k\beta _{n-k}	\right).
+		\label{eq1x12}
+\end{align}
+
+\定理{1.12}
+絶対収束級数の項を任意にまとめ直したり順番を変更して得られる級数も絶対収束して，
+和の値は変わらない．
+\□
+
+\例{1.13}
+$\sum_{n=0}^\infty	\alpha_n$が絶対収束するならば，その一部分をとって作った部分級数
+$\sum_{k=0}^\infty	\alpha _{n_k}	\:	(n_0	<	n_1	<	n_2	<	\cdots	)$も絶対収束する．
+例えば次章で示すように$\alpha _n	=	(iz)^n	/	n!$は絶対収束級数を定める．
+よって$\sum_{n=0}^\infty	\alpha_{n2},	\sum_{n=0}^\infty	\alpha_{2n+1}$も絶対収束し，
+\begin{align*}
+	&	\sum_{n=0}^\infty	(-1)^n	\frac{z^{2n}}{(2n)!}
+		+
+		\sum_{n=0}^\infty	(-1)^n	\frac{z^{2n+1}}{(2n+1)!}	\\
+	&	=
+		\sum_{n=0}^\infty	\left(\alpha _{2n}	+	\alpha _{2n+1}	\right)	
+		\quad	\text{(性質	(\ref{eq1x11}))}	\\
+	&	=
+		\sum_{n=0}^\infty	\alpha _n	=	\sum_{n=0}^\infty	\frac{(iz)^n}{n!}
+		\quad	\text{(項のまとめ直し).}
+\end{align*}
+これはオイラーの関係式 (学習の手引き，式(\ref{eq0x6})) を導くときに用いた変形である．
+\□
+
+2つの添え字を持つ列$\{\alpha _{mn}\}_{m,n=0}^\infty$を2重数列という．ここから生じる2つの
+級数$\displaystyle	\sum_{m=0}^\infty	\left(	\sum_{n=0}^\infty	|	\alpha_{mn}	|	\right)	$
+は共に収束して値が等しいことが示される．後者の場合，2重級数$\sum_{m,n=0}^\infty	\alpha _{mn}$
+は絶対収束するという．
+
+\定理{1.14}
+絶対収束する2重級数は和の順序を交換できる：
+\[
+	\sum_{m=0}^\infty	\left(\sum_{n=0}^\infty	\alpha _{mn}	\right)
+	=
+	\sum_{n=0}^\infty	\left(\sum_{m=0}^\infty	\alpha _{mn}	\right)
+\]
+2重級数とこの定理の証明についてはこのシリーズの『現代解析学への誘い』を見ていただきたい．
+
+　
+
+\textbf{＜まとめ＞}
+\begin{description}{}{}
+	\item	\textbf{1.1}　複素数は平面上の点によって表される．
+	\item	\textbf{1.2}　複素数の積は回転に関係している．
+	\item	\textbf{1.3}　四則演算や数列の収束などの点で複素数は実数同様の取り扱いができるが，大小関係は定まらない．
+	\item	\textbf{1.4}　絶対収束級数は有限和と同じように扱うことができる．
+\end{description}
+
+\textbf{―演習問題―}
+
+\textbf{1.1}
+相異なる複素数$\alpha,\beta$からの距離の比が一定値$k$，すなわち$k	|	z	-	\alpha|	=	|	z	-	\beta|$となる
+点$z$の全体はどのような図形を表すか．
+
+\解
+
+$k=1$ならば$\alpha$と$\beta$から等しい距離にある点の軌跡だから，
+両者を結ぶ線分の垂直2等分線．$k	\ne	1$の場合は$k^2	|	z	-	\alpha	|	^2	=	|z	-	\beta|^2$を
+変形して
+\begin{align*}
+		k^2	|	z-	\alpha|^2	=	|z	-	\beta|^2
+	&	\Rightarrow
+		k^2	|	z-	\alpha|^2	-	|z	-	\beta|^2	=	0	\\
+	&	\Rightarrow
+		k^2	|	z-	\alpha|^2	-	|z	-	\beta|^2	=	0	\\
+	&	\text{（保留）}	\\
+	&	\Rightarrow
+		\left|	z	-	\frac{k^2	\alpha	-	\beta}{k^2	-1}	\right|^2	=	\frac{k^2	|\alpha	-	\beta|^2}{(k^2-1)^2}
+\end{align*}
+と書けるから，中心$(k^2	\alpha	-	\beta)/(k^2-1)$，半径$k|\alpha-\beta|/|k^2-1|$
+の円周を表す（アポロニウスの円）．
+
+\textbf{1.2}
+\[
+	w	=	\frac{z-i}{z+i}
+\]
+とおくとき，$\text{Im }	z	>	0$であることと$|w|	<	1$は同値である．これを，（１）計算によって，
+（２）幾何学的意味を考えて，それぞれ示せ．
+
+\解
+（１）計算すれば
+\begin{align*}
+		|w|^2	-	1	&	=	\left|\frac{z-i}{z+i}	\right|^2	-	1
+								=	\frac{|z-i|^2-|z+i|^2}{|z+i|^2}
+								=	\frac{(z-i)(\overline{z}+i)-(z+i)(\overline{z}-i)}{|z+i|^2}	\\
+							&	=	\frac{	(z\overline{z}	+	zi	-	i	\overline{z}	+	1)
+												-	(z\overline{z}	-	zi	+	i	\overline{z}	+	1)	}{|z+i|^2}
+								=\frac{2i(z	-	\overline{z})}{|z+i|^2}
+								=	-4	\frac{\text{Im } z}{|z+i|^2}
+\end{align*}
+からわかる．
+
+（２）幾何学的には$|w|<1$は点$z$と$i$の距離が$-i$との距離より近いことを示すから
+$z$の虚部が正であることと同値．
+\■
+
+
+\textbf{1.3}
+3点$0,z,z+w$を頂点とする3角形の面積は
+$\text{Im }	(\overline{z}w	/	2)$の絶対値で
+与えられることを示せ．
+
+\証明
+$z=a+ib$，$z+w	=	c+id$とすれば問題の面積は
+\begin{align*}
+		\frac{ad-bd}{2}	&=	\frac{\text{Im }\{(a-ib)(c+id)\}}{2}	=\frac{\text{Im } \{\overline{z}	(	z	+	w)\}}{2}	\\
+										&=	\frac{\text{Im }\overline{z}w}{2}
+\end{align*}
+の絶対値．
+\■
+
+\textbf{1.4}
+$z=r	e^{i\theta}$,	$\zeta	=	R	e^{i	\varphi}$のとき$1	/	(\zeta	-	z)$の絶対値と実部を
+$R,	r,	\theta	,	\varphi$を用いて表せ．
+
+\解
+絶対値$1	/	\sqrt{	R^2	+	r^2	-2	R	r	\cos	(	\varphi	-	\theta)}$，実部は
+$(R	\cos	\varphi	-	r	\cos	\theta)	/	(R^2	+	r^2	2	R	r	\cos	(\varphi	-	\theta))$.
+
+（詳細保留）
+
+\■
+
+\textbf{1.5}
+複素数体を含み，次の(1),(2)を同時に満たすような体は存在しないことを示せ．
+
+(1)	$i$の他に元$j$があり，任意の元は$a	+	bi	+	cj	\:	(a,b,c	\in	\R)$の形に
+一意的に表される．
+
+(2)加減乗除の規則(\ref{eq1x1xa})～(\ref{eq1x1xd}),(\ref{eq1x2})が成り立つ．
+
+\証明
+$j^2	=	a	+	bi	+	cj$と表せば$j$は複素数を係数とする2次方程式の根ということになるから，
+それ自身複素数となる．これは表示の一意性に矛盾する．
+
+（保留）
+
+\■
+
+\textbf{1.6}
+$|\alpha	|	<	1$であるとき次のことを確かめよ．
+\[
+	|z|	\gtreqqless	1	\Longleftrightarrow	\frac{|z	-	\alpha|}{\overline{\alpha}z	-1}	\gtreqqless	1
+	\quad	(\text{複合同順})
+\]
+\証明
+右式を変形すると，
+\begin{align*}
+	\frac{|z	-	\alpha|}{\overline{\alpha}z	-1}	\gtreqqless	1
+	&	\Longleftrightarrow
+	|z	-	\alpha|	\gtreqqless	\overline{\alpha}z	-	1
+	\Longrightarrow
+	|z	-	\alpha|^2	=	(\overline{\alpha}z	-	1)^2	\stackrel{\text{☆}}{=}	|\overline{\alpha}z	-	1|^2	\\
+	&	\text{(左辺は実数だから右辺も実数，したがって☆が成り立つ)}	\\
+	&	\Longleftrightarrow
+	|\overline{\alpha}z	-	1|^2	-	|z	-	\alpha|^2	=	0	\\
+	&	\Longleftrightarrow
+	|(\overline{\alpha}z	-	1)^2|	-	|(z	-	\alpha)^2|	=	0	\\
+	&	\Longleftrightarrow
+	|(\overline{\alpha}^2z^2	-2	\overline{\alpha}	+	1|	-	|(z	-	\alpha)^2|	=	0	\\	
+	&	\Longleftrightarrow
+	\text{(要検証)}	\\	
+	&	\Longleftrightarrow
+	(|\overline{\alpha}z|^2	-2|\overline{\alpha}z|	+	1)	-	(|z|^2	-2	|z||\alpha|	+	|\alpha|^2)	=0	\\
+	&	\Longleftrightarrow
+	1	-	|z|^2	-	|\alpha|^2	+	|\alpha|^2|z|^2	=	0	\\
+	&	\Longleftrightarrow
+	(1-|\alpha|^2)(1-|z|^2)	=0
+\end{align*}
+$|\overline{\alpha}z	-	1 |^2	-	|z-\alpha |^2	=	(1-|\alpha |^2)(1-|z|^2)$から明らか．
+
+\pagebreak
+
+\textbf{1.7}
+次の等式を示せ：
+\[
+	\sum_{n=1}^\infty	\frac{z^{n-1}}{(1-z^n)(1-z^{n+1})}
+	=
+	\begin{cases}
+		\displaystyle
+		\frac{1}{(1-z)^2}		&	\quad	\text{($|z|<1$のとき)}	\\
+		\\
+		\displaystyle
+		\frac{1}{z(1-z)^2}	&	\quad	\text{($|z|>1$のとき)}	
+	\end{cases}
+\]
+
+\証明
+$z=0$のときは明らか．$0	<	|z|	<	1$のときは
+\begin{align*}
+	\sum_{n=1}^{N-1}	\frac{z^{n-1}}{(1-z^n)(1-z^{n+1})}	
+	&=	\sum_{n=1}^{N-1}	z^{n-1}	\left(	\frac{1}{1-z^n}	-	\frac{1}{1-z^{n+1}}	\right)
+			\frac{1}{z^n(1-z)}	\\
+	&=	\sum_{n=1}^{N-1}	\left(	\frac{1}{1-z^n}	-	\frac{1}{1-z^{n+1}}	\right)
+			\frac{1}{z(1-z)}	\\
+	&=	\left(	\frac{1}{1-z}	-	\frac{1}{1-z^{2}}	\right)
+			\frac{1}{z(1-z)}	+
+			\left(	\frac{1}{1-z^2}	-	\frac{1}{1-z^{3}}	\right)
+			\frac{1}{z(1-z)}	\\
+	&		\quad	+	\cdots	+
+			\left(	\frac{1}{1-z^n}	-	\frac{1}{1-z^{n+1}}	\right)
+			\frac{1}{z(1-z)}	+	\cdots	\\
+	&		\quad	+	\left(	\frac{1}{1-z^{N-2}}	-	\frac{1}{1-z^{N-1}}	\right)
+			\frac{1}{z(1-z)}	+
+			\left(	\frac{1}{1-z^{N-1}}	-	\frac{1}{1-z^{N}}	\right)
+			\frac{1}{z(1-z)}	\\
+	&=	\left(	\frac{1}{1-z}	-	\frac{1}{1-z^{N}}	\right)
+			\frac{1}{z(1-z)}
+\end{align*}
+であるから$	N	\rightarrow	\infty$のとき
+\begin{align*}
+\lim_{N\rightarrow	\infty}\left(	\frac{1}{1-z}	-	\frac{1}{1-z^{N}}	\right)
+			\frac{1}{z(1-z)}	
+&=	\left(	\frac{1}{1-z}	-	\frac{1}{1}	\right)
+			\frac{1}{z(1-z)}	\\
+&	=	\frac{z}{1-z}	\frac{1}{z(1-z)}
+	=	\frac{1}{(1-z)^2}
+\end{align*}
+わかる．$|z|	>	1$のとき$z=1/w$とおけば，
+\begin{align*}
+	\frac{z^{n-1}}{(1-z^n)(1-z^{n+1})}
+	&=
+	\frac{
+		\left(	\displaystyle
+			\frac{1}{w}
+		\right)^{n-1}
+	}{	\displaystyle
+		\left(
+			1	-
+				\left(	
+						\frac{1}{w}	
+				\right)^n	\right)	
+				\left(	
+					1-\left(	\frac{1}{w}	\right)^{n+1}	
+				\right)}	\quad	\text{(分母・分子に$w^{2(n+1)}$を掛ける)}	\\
+	&=
+	\frac{w^{n+3}}{\displaystyle
+		\left(
+			w^{n+1}	-	w	
+		\right)
+		\left(	
+			w^{n+1}-1	
+		\right)}
+	=
+	\frac{w^{n+2}}{\displaystyle
+		\left(
+			1-	w^n
+		\right)
+		\left(	
+			1	-	w^{n+1}
+		\right)}
+	=
+	\frac{w^3	w^{n-1}}{\displaystyle
+		\left(
+			1-	w^n
+		\right)
+		\left(	
+			1	-	w^{n+1}
+		\right)}
+\end{align*}
+によって前半に帰着して，
+\begin{align*}
+	\sum_{n=1}^{\infty}	\frac{w^3	w^{n-1}}{(1-w^n)(1-w^{n+1})}	
+	&	=	w^3	
+		\frac{1}{(1-w)^2}
+		=	w	\frac{1}{	\displaystyle	\left(\frac{1}{w}-1	\right)^2}
+	=	\frac{1}{z(1-z)^2}
+\end{align*}
+\■

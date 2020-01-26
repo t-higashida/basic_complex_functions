@@ -1,0 +1,313 @@
+\section{複素関数の積分}
+
+実1変数関数$u(x)$の定積分は，数直線上の始点$a$と終点$b$を与えて
+区間$a \leqq t \leqq b$の細分をとり，区分和の極限
+
+\begin{equation}
+	\int_a^b u(t) dt = \lim \sum_{i=0}^{N-1} u(t_i) (t_{i+1} - t_i)
+  \quad (a= t_0 < t_1 < \cdots < t_N = b)	
+\label{eq3x12}
+\end{equation}
+として定義された．関数$f(t)=u(t) + iv(t)$が
+複素数の値をとるときは，
+\begin{equation}
+	\int_a^b f(t) dt = \int_a^b u(t) dt + i \int_a^b v(t) dt
+\label{eq3x13}
+\end{equation}
+によってその積分を定義する．
+
+複素関数$f(z)$の積分を同じ流儀で考えてみようとするとき，
+すぐに気づくのは，平面の1点$a + ib$から他の1点$c+id$へ
+どのように「積分」するかがあらかじめ決まっていない
+ことである．はじめに$x$座標に沿って進んだ後，
+$y$方向に進むのか，あるはその逆に進むのか．
+もっと勝手に2点を結ぶ色々な曲線を考えることもできる．
+一般の複素関数の積分は，両端の点だけでなく積分する
+「道」を定めて初めて定義できるのである．
+
+\subsection{複素平面上の曲線}
+
+複素平面上の曲線は，
+\begin{equation}
+	C \: : \: z = z(t) = x(t) + iy(t) \quad (a \leqq t \leqq b)	
+\label{eq3x14}
+\end{equation}
+と与えることができる．$x(t),y(t)$は実変数$t$の連続関数である．
+正確に言えば，私たちはパラメータ表示の仕方まで込めたもの，
+つまり複素数値の連続関数$z(t)$そのもののことを「曲線」と言う．
+例えば，軌跡としては同じ円周になるにしても，
+反時計周りに1周する$z(t) = e^{it} \: (0 \leqq t \leqq 2 \pi)$のと，
+2周する$z(t) = e^{it} \: (0 \leqq t \leqq 4 \pi)$，反対向きに回る
+$z(t) = e^{-it} \: (0 \leqq t \leqq 2 \pi)$などは
+別の曲線と区別するのである．$z(a)$を曲線$C$の始点，$z(b)$を終点という．
+始点と終点が一致するような曲線を\textbf{閉曲線}とよぶ．
+
+曲線$C\:$(\ref{eq3x14})に対して，向きを逆にし，$z(b)$を始点，
+$z(a)$を終点とする曲線を$C^{-1}$によって表す．式で書けば
+\[
+	C^{-1} \: : \: z=z(a+b-t) \quad (a \leqq t \leqq b)
+\]
+となる．2つの曲線$C_i \: z = z_i(t) \: (a_i \leqq t \leqq b_i, i=1,2)$に
+おいて，$C_1$の終点と$C_2$の始点が一致しているならば
+（つまり$z_1 (b_1) = z_2 (a_2)$），はじめに$C_1$で行った後に
+$C_2$をつないだ曲線を考えることができる．これを$C_2C_1$で表す．
+すなわち
+\[
+	C_2 C_1 : z = \begin{cases}
+		             \: z_1(t) & \quad (a_1 \leqq t \leqq b_1) \\
+		             \: z_2(a_2+t-b_1) & \quad (b_1 \leqq t \leqq b_1+b_2-a_2)
+								\end{cases}
+\]
+である．いくつかの曲線をつなげたものを$C_r \cdots C_2 C_1$も
+まったく同様に定められる．
+
+\注意{3.11}
+$C^{-1}$を$-C$，$C_2C_1$を$C_2+C_1$のように加法的に表示した本も多い．
+$C_1C2$と$C_2C_1$では意味が違うので，ここでは乗法的に書くことにする．
+
+応用上はあまり複雑な曲線は扱いにくいので，条件をつけて考えたい．
+曲線$C$(\ref{eq3x14})が\textbf{滑らか}であるとは，
+$x(t),y(t)$がともに$t$の関数として$C^1$級であって
+\[
+	|z'(t)|^2 = |x'(t)|^2 + |y'(t)|^2 \ne 0
+\]
+が成り立つことをいう．後の条件は曲線上の各点において
+接線が確定することを表す．なめらかな曲線をいくつかつなげて
+$C=C_r\cdots C_1$（$C_1, \cdots , C_r$は滑らか）
+の形にかけるとき，$C$は\textbf{区分的に滑らか}であるという．
+今後はもっぱら区分的に滑らかな曲線のみをあつかい，そのことをいちいち
+断らない．私たちが念頭に置いているのは，円周の一部や線分を有限個
+つないだ場合である（図\ref{fig3x1}参照）．始点と終点の例外をのぞいて
+$C$が自分自身と交わったり重なったりしていない，すなわち
+$a \leqq t_1 \ne t_2 < b$なら
+$z(t_1) \ne z(t_0)$が成り立っているとき，
+$C$は\textbf{単純な曲線}であるという．
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[bb=0 0 800 200,clip,width=14cm,height=4cm]{fig3x1.bmp}
+	\caption{曲線の例}
+	\label{fig3x1}
+\end{figure}
+
+今後しばしば円周や長方形のような単純閉曲線を用いる．
+単純閉曲線の内側を左手に見るように周囲を向きつけ，
+これを\textbf{正の向き}という．円周ならば反時計回りの向き
+である．
+
+\注意{3.12}単純曲線は平面を内側（有界な部分）と
+外側（有界でない部分）の２つの領域に
+わける
+\footnote{ \textbf{Jordanの定理}：
+単一閉曲線によって，複素平面は，内部と外部に分けられる．
+}
+．これは一見直観的に明らかなようだが，一般の単純閉曲線の場合
+じつは大変面倒な問題を含んでおり，数学的な証明には
+位相幾何学の準備を必要とする．本書ではその問題には立ち入らず，
+有限個の線分や円周の一部によって囲まれる簡単な図形だけを
+扱う．このような場合には「内部を左手に見る向き」の意味は
+明らかであろう．
+
+\subsection{曲線に沿う積分}
+
+ある領域で定義された連続な関数$f(z)$に対して，
+領域内の曲線$C$に沿っての積分を定義するにはどうしたらよいだろうか？
+実1編集の場合と同じように考えれば，分点のとり方を
+どんどん細かくしていったときの区分和
+\[
+	\sum_{i=0}^{N-1} f(z(t_i)) \left(z(t_{i+1}) - z(t_i) \right)
+\]
+の極限として複素積分を定義するのが自然だろう．$C$が滑らかならば，
+この極限は存在して
+\begin{equation}
+	\int_C f(z) dz = \int_a^b f(z(t)) \frac{dz}{dt} dt
+\label{eq3x15}
+\end{equation}
+の右辺に収束することを示すことができる
+（右辺は実変数の積分（\ref{eq3x13}））．
+しかしここでは極限の存在は証明せず，$C$が滑らかなとき
+(\ref{eq3x15})を複素積分に採用してしまうことにする．
+また区分的に滑らかな曲線$C=C_r \cdots C_1$について
+\begin{equation}
+	\int_C f(z) dz = \int_{C_r} f(z) dt + \cdots
+                   \int_{C_1} f(z) dt
+\label{eq3x16}
+\end{equation}
+によって定義する．曲線$C$を\textbf{積分路}という．
+当然だが積分の値も複素数でである．なお線積分の概念
+（本シリーズ『微分と積分2』第5章）を使えば，
+(\ref{eq3x15})は次のように表される．
+\[
+	\int_C f(z) dz = \int_C (udx-vdy) + i \int_C (v dx + u dy)
+  \quad (f(z) = u(x,y) + iv(x,y)).
+\]
+
+\subsection{積分の基本性質}
+基本的ないくつかの性質を列挙しよう．いずれも定義(\ref{eq3x15})，(\ref{eq3x16})から
+すぐに確かめられる．
+
+\命題{3.13}
+\begin{align*}
+	&\int_C	(f(z)	\pm	g(z))	dz	=	\int_C	f(z)	dz	\pm	\int_C	g(z)	dz,		\\
+	&\int_C	\alpha	f(z)				=	\alpha	\int_C	f(z)	dz,	\quad	\text{($\alpha$は定数)},	\\
+	&\int_{C^{-1}}	f(z)				=	-	\int_C	f(z)	dz,		\\
+	&\int_{C_2C_1}	f(z)				=	\int_{C_1}	f(z)	dz	+	\int_{C_2}	f(z)	dz.
+\end{align*}
+\□
+
+積分の大きさを評価するのに，次の不等式がよく使われる．
+
+\命題{3.14}
+\begin{equation}
+	\left|	\int_C	f(z)	dz	\right|	\leqq	\int_C	|f(z)|	|dz|.
+	\label{eq3x17}
+\end{equation}
+ここで右辺は，$C$が$z=z(t)	\:	(a	\leqq	t	\leqq	b)$と与えられるとき
+\[
+	\int_a^b	|f(z(t))|	\left|	\frac{dz}{dt}\right|	dt
+\]
+を表す．
+
+\証明
+積分の値を極形式で表示して$\displaystyle \int_c f(z) dz = R e^{i \theta}$
+とおく．この両辺に$e^{-i \theta}$をかければ実数になるから
+\begin{align*}
+	\left|
+      \int_C f(z) dz
+  \right|
+    &= e^{- i \theta} \int_C f(z) dz
+    = \int_a^b \text{Re } \left(
+                             e^{i \theta} f(z) \frac{dz}{dt}
+                           \right) dt \\
+    &\leqq \int_b^a \left|
+                     e^{-i \theta} f(z) \frac{dz}{dt}
+                    \right| dt
+    = \int_a^b | f(z(t)| \left|
+                             \frac{dz}{dt}
+                          \right| dt
+\end{align*}
+\■
+
+関数列$\{f_n(z)	\}_{n=1}^\infty$が$\C$の部分集合$K$上の関数$f(z)$に\textbf{一様収束}するとは，
+\[
+	\sup_{z	\in	K}	|f_n(z)	-	f(z)	|	\rightarrow	0	\quad	(n	\rightarrow	\infty).
+\]
+が成り立つことをいう．すなわち
+\begin{align*}
+ &\forall \varepsilon > 0 , \exists n_0, n \geqq n_0 \Rightarrow \sup_{z \in K} |f_n(z) - f(z) | < \varepsilon \\
+ &\Longleftrightarrow \\
+ &\forall \varepsilon > 0 , \exists n_0, n \geqq n_0, \forall z \in K \Rightarrow |f_n(z) - f(z) | < \varepsilon.
+\end{align*}
+
+積分と極限の順序を保証する次の事実は第4章で活用する．
+
+\命題{3.15}
+連続関数の列$\{f_n(z)\}_{n=1}^\infty$が曲線$C$の上で一様収束している
+ならば，
+\begin{equation}
+	\lim_{n \rightarrow \infty} \int_c f_n(z) dz
+  =
+  \int_C \lim_{n \rightarrow \infty} f_n(z) dz
+\label{eq3x18}
+\end{equation}
+\証明
+右辺$\displaystyle f(z) = \lim_{n\rightarrow\infty}f_n(z)$とおく．
+$f(z(t))$は連続関数列$f_n(z(t))$の一様収束極限だから$t$について連続であり
+（本シリーズ『微分と積分1』第4章参照），積分が意味を持つ．
+命題3.14を用いて
+\begin{align*}
+	\left| \int_C f_n(z) dz - \int_C f(z) dz
+  \right|
+  \leqq 
+  \int_C | f_n(z) - f(z)||dz|
+  \leqq \sup_{z \in C} |f_n(z) - f(z)| \int_C |dz|.
+\end{align*}
+この右辺は仮定から$n \rightarrow \infty$で$0$に収束する．
+\■
+
+内容的には同じことだが，級数の形に言い換えておこう．連続関数を
+項とする級数
+\begin{equation}
+	f(z) = \sum_{n=0}^\infty u_n(z)
+\label{eq3x19}
+\end{equation}
+が$C$上で一様収束とするとは，列$\displaystyle f_N(z) = \sum_{n=0}^N  u_n(z)$
+が$N \rightarrow \infty$で一様収束することと定める．このとき
+\[
+	\int_C f_N(z) dz = \sum_{n=0}^N \int_c u_n(z) dz
+\]
+であるから，次の命題が成り立つ．
+
+\命題{3.16}
+級数(\ref{eq3x19})が$C$上一様収束すれば，項別積分ができる：
+\[
+	\int_C \sum_{n=0}^\infty u_n(z) dz = \sum_{n=0}^\infty \int_C u_n(z) dz.
+\]
+\□
+\pagebreak
+\subsection{簡単な例}
+さて，実例を計算して複素積分の感じをつかむことにしよう．
+
+\例題{3.17}
+関数$f(z) = \overline{z}$を次の積分経路に沿って
+積分せよ（\ref{fig3x2}）．
+\begin{list}{}{}
+	\item	（１）$0,a,ib,a+ib$を頂点とする長方形の辺
+	\item （２）原点中心，半径$r$の円周
+\end{list}
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[bb=0 0 800 200,clip,width=12cm,height=4.5cm]{fig3x2.bmp}
+	\caption{長方形・円周に沿う積分}
+	\label{fig3x2}
+\end{figure}
+\解
+（１）図のように積分路に名前を付ける．
+このとき
+\begin{align*}
+	\int_{C_1} \overline{z} dz 
+     &= \int_{C_1} (x - iy) \left( \frac{\partial z}{\partial x}dx + \frac{\partial z}{\partial y} dy \right)
+      = \int_{(0,0)}^{(a,0)} (x - iy) (dx + i dy) \\
+     &= \int_{(0,0)}^{(a,0)} (x dx - iydx ) + (i x dy + y dy)
+      = \int_{(0,0)}^{(a,0)} (x dx + y dy ) + i ( x dy - ydx) \\
+     &= \int_{(0,0)}^{(a,0)} (x dx - i y dx)
+      = \left[ \frac{1}{2}x^2 - ixy \right]_{(0,0)}^{(a,0)} \\
+     &= \frac{a^2}{2} \\
+  \int_{C_2} \overline{z} dz
+     &= \int_{C_2} (x - iy) \left( \frac{\partial z}{\partial x}dx + \frac{\partial z}{\partial y} dy \right)
+      = \int_{(a,0)}^{(a,b)} (x - iy) (dx + i dy) \\
+     &= \int_{(a,0)}^{(a,b)} (y dy + i x dy)
+      = \left[ \frac{1}{2} y^2 + ixy \right]_{(a,0)}^{(a,b)} \\
+     &= \frac{1}{2} b^2 + iab
+\end{align*}
+であるから
+\[
+	\int_{C_2C_1} \overline{z} dz = \int_{C_2} \overline{z} + \int_{C_1} \overline{z}
+  =\frac{a^2 + b^2}{2} + iab.
+\]
+同様にして
+\[
+	\int_{C_1'C_2'} \overline{z} dz = \int_0^b (0-iy) idy
++ \int_0^a (x-ib) dx = \frac{a^2 + b^2}{2} -iab.
+\]
+これより$C={C_2'}^{-1}{C_1'}^{-1}C_2C_1$に沿う1周積分は
+\[
+	\int_C \overline{z} dz = 2i \cdot ab
+\]
+で与えられる．
+
+（２）円周を$C:z = re^{i \theta} \: (0 \leqq \theta \leqq 2\pi)$と
+表せば，
+$\displaystyle 
+   dz = \frac{\partial z}{\partial r}  dr + \frac{\partial z}{\partial \theta} d\theta
+      = e^{i\theta} dr + i r e^{i \theta} d \theta
+$であるから，
+\begin{align*}
+	\int_C \overline{z} dz
+       &= \int_{(r,0)}^{(r,2\pi)} re^{-i \theta} (e^i\theta dr + i r e^{i \theta} d \theta)\\
+       &= \int_{(r,0)}^{(r,2\pi)} r e^{-i \theta} \cdot r i e^{i \theta} d \theta \\
+       &= \left[r^2 \cdot i \cdot \theta \right]_{(r,0)}^{(r,2\pi)} =2 \pi \cdot r^2 \cdot i = 2i \pi r^2.	
+\end{align*}
+\■
+この2つの例をじっと眺めてみると，$2i$倍を除いて$\overline{z}$の積分値
+$ab, \pi r^2$はそれぞれ積分路の囲む領域の面積になっていることに気づく．
+その理由を次に考えてみたい．

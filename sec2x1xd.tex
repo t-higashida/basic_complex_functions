@@ -1,0 +1,184 @@
+\subsection{べき級数の例}
+最も基本的な級数をいくつか挙げよう．
+
+\例{2.7}（指数関数と３角関数）複素変数の指数関数$e^z$と３角関数$\cos	z,	\sin	z$
+は次のべき級数によって定義される：
+\begin{align}
+	e^z	&=	1	+	\frac{z}{1!}	+	\frac{z^2}{2!}	+	\cdots	+	\frac{z^n}{n!}	+	\cdots,	
+		\label{eq2x11}	\\
+	\cos	z	&=	1	-	\frac{z^2}{2!}	+	\frac{z^4}{4!}	-	\cdots	+(-1)^n	\frac{z^{2n}}{(2n)!}	+	\cdots,	
+		\label{eq2x12}	\\
+	\sin	z	&=	z	-	\frac{z^3}{3!}	+	\frac{z^5}{5!}	-	\cdots	+(-1)^n	\frac{z^{2n+1}}{(2n+1)!}	+	\cdots,	
+		\label{eq2x13}
+\end{align}
+指数関数(\ref{eq2x11})の収束半径は，係数比例判定法によって
+\[
+	\rho	=	\lim_{n\rightarrow	\infty}	\frac{(n+1)!}{n!}	=	\infty
+\]
+である．３角関数(\ref{eq2x12})，(\ref{eq2x13})の$|z|^n$の係数は絶対値が
+$1/n!$で抑えられるから，これらの収束半径もやはり$\rho	=	\infty$である．
+\□
+
+\例{2.8}
+（対数関数）例2.2の$f_1$を優級数として比較すると，次の級数の収束半径は$\rho=1$である．
+\begin{equation}
+	\log	(1+	z)	=	z	-	\frac{z^2}{2}	+	\frac{z^3}{3}	+	\cdots	+	(-1)^{n-1}	\frac{z^n}{n}	+	\cdots
+	\label{eq2x14}
+\end{equation}
+\□
+微積分で学ぶように，$z=x$が$-1	<	x	<	1$を満たす実数のとき右辺は
+$\log	(1+x)$に等しい．そこで$|z|	<	1$における対数関数を(\ref{eq2x14})で定義し，
+実関数の記号をそのまま流用する（この定義の妥当性については一致の定理（定理2.38）によって保証される）．
+以下の例2.9，2.10についても同様である．
+
+\例{2.9}（累乗関数）
+\begin{equation}
+	(1+z)^\alpha	=	1	+	\frac{\alpha }{1!}z	+	\frac{\alpha (\alpha -1)}{2!}	z^2	+
+										\cdots
+										+	\binom{\alpha}{n}z^n	+	\cdots
+	\label{eq2x15}
+\end{equation}
+ただし複素数$\alpha$に対し，記号
+\begin{equation}
+	\binom{\alpha}{n}	=	\frac{\alpha(\alpha-1)	\cdots	(\alpha	-n	+1)}{n!},
+	\quad
+	\binom{\alpha}{0}	=	1
+	\label{eq2x16}
+\end{equation}
+は2項係数を表す．(\ref{eq2x16})を$a_n$と書くとき，$\alpha$が非負の整数でなければ（$\alpha	\not\in	\Z^+$）
+$a_n	\ne	0$であって
+\[	
+	\frac{a_n}{a_{n+1}}	=	\frac{n+1}{\alpha-n},	\quad
+	\lim_{n\rightarrow	\infty}	\frac{|a_n|}{|a_{n+1}|}	=	1.
+\]
+よって係数比較判定法により収束半径は$\rho=1$である．もし$\alpha	=	m$（$m$は非負整数）ならば
+上の級数は有限項で切れて$m$次多項式になるから，そのときはもちろん$\rho=\infty$となる．
+
+『微分と積分１』では(\ref{eq2x15})を「べき関数」と呼んでいた．「べき」と「累乗」はどちらも
+powerで同じ意味の言葉であるが，べき級数と紛らわしいので本書では(\ref{eq2x15})を
+「累乗関数」と呼ぶことにする．
+\□
+
+\例{2.10}
+（逆３角関数）次も収束半径は$\rho	=	1$である．
+\begin{align}
+	\arcsin	z	&	=	\sum_{n=0}^\infty	\frac{(2n-1)!!}{(2n)!!}	\frac{z^{2n+1}}{2n+1}
+							=	z	+	\frac{1}{2}\frac{z^3}{3}	
+									+	\frac{1	\cdot	3}{2	\cdot	4}	\frac{z^5}{5}	
+									+	\frac{1	\cdot	3	\cdot	5}{2	\cdot	4	\cdot	6}	\frac{z^7}{7}	+	\cdots	\notag\\
+	\arctan	z	&	=	\sum_{n=0}^\infty	(-1)^n	\frac{z^{2n+1}}{2n+1}
+							=	z	-	\frac{z^3}{3}	
+									+	\frac{z^5}{5}	
+									-	\frac{z^7}{7}	+	\cdots	\notag
+\end{align}
+ここで$(2n-1)!!	=	(2n-1)(2n-3)\cdots	3	\cdot	1$，$(2n)!!=	(2n)(2n-2)	\cdots	4	\cdot	2$.
+\□
+
+多項式，有理関数とならんで微積分で親しんでいる３角関数，指数関数，対数関数，累乗関数，
+逆３角関数，およびその組み合わせで書ける関数を総称して
+\textbf{初等関数}(elementary function)と言う．上では級数の収束円内において，
+これらを複素関数として定義した．一般の$z$に対する初等関数についてはこの章の最後に触れる．
+
+\例{2.11}（超幾何級数(hypergeometric series))
+
+\begin{align}
+	F(\alpha	,	\beta	,	\gamma	,	z)	
+			&=	\sum_{n=0}^\infty	\frac{(\alpha)_n	(\beta)_n}{\gamma)_n	n!}	z^n	\notag	\\
+			&=	1	+	\frac{\alpha	\cdot	\beta}{\gamma	\cdot	1}
+						+	\frac{\alpha	(\alpha	+1)\cdot	\beta	(\beta	+	1)}{\gamma	(\gamma+1)	\cdot	2!}z^2	+	\cdots													
+		\label{eq2x17}
+\end{align}
+ただし$\gamma	\ne	0	,	-1	,	-2,	\cdots$とし，また$(\alpha)_n	=	\alpha	(	\alpha+1)	\cdots	(\alpha +	n	-1)$とおく．
+
+例2.8～2.10は超幾何級数の特別な場合である：
+\begin{align*}
+	&F(	\alpha 	,	\beta ,	\beta ,	z)	=	(1-z)^{-\alpha },	\quad	
+	z	F(1,1,2,z)	=	-	\log	(1-z),	\\
+	&	z	F\left(\frac{1}{2},	\frac{1}{2},	\frac{3}{2},	z^2	\right)	=	\arcsin	z,	\quad
+		z	F\left(\frac{1}{2},	1	,	\frac{3}{2},	-z^2	\right)	=	\arctan	z.
+\end{align*}
+\□
+
+\問{2}
+超幾何級数(\ref{eq2x17})の収束半径を求めよ．
+
+\解
+$\alpha$または$\beta$が非負の整数ならば収束半径は$\infty$，それ以外のときは$1$．
+（保留）
+
+\問{3}
+$\gamma	\ne	0	,-1,	-2,	\cdots$として，次の\textbf{合流型超幾何級数}の収束半径を求めよ．
+\begin{equation}
+	F(\alpha ,\gamma ,z )	=	\sum_{n=0}^{\infty}	\frac{	\alpha )_n}{(\gamma )_n	n!}	z^n
+	\label{eq2x18}
+\end{equation}
+
+\解
+収束半径は$\infty$．(保留）
+
+\例{2.12}
+次の級数の収束半径は$\rho	=	0$である．
+\[
+	1	+1!	z	+	2!	z^2	+	\cdots	+	n!	z^n+	\cdots
+\]
+なぜなら$z	\ne	0$なる限り$n!	|z^n|	\rightarrow	\infty$が成り立つ．
+\□
+
+\例{2.13}
+少し毛色の違う例を挙げよう．いま，因子$1-z^n$を$n=1,2,3,	\cdots$と順に掛け合わせていった
+式を$z$について展開してみる．例えば$z^4$までの展開を計算するには$n=5,6,	\cdots$の
+因子は影響がないから，最初の4項だけを展開することによって
+\begin{align*}
+	&(1-z)(1-z^2)	=	1-z	-	z^2	+	z^3,	\\
+	&(1-z)(1-z^2)(1-z^3)	=	1-z	-	z^2	+	z^4	+	z-5	-z^6,	\\
+	(1-z)(1-z^2)(1-z^3)(1-z^4)	\cdots	=	1-z	-	z^2	+	\text{(5次以上)}
+\end{align*}
+と計算できる．これを続けていくと
+\[
+	1	-	z	-	z^2	+	z^5	+	z^7	-	z^{12}	-z^{15}	+	z^{22}	+	z^{26}	-	\cdots
+\]
+という級数が得られる（$z^7$までの展開を確かめていただきたい）．
+
+この級数は
+\begin{equation}
+	1	+	\sum_{n=1}^{\infty}	(-1)^n	(z^{(3n-1)n/2}	+	z^{(3n+1)n/2})
+				=	\sum_{n=-\infty}^\infty	(-1)^n	z^{(3n-1)n/2}
+	\label{eq2x19}
+\end{equation}
+と書けることが知られている（第5章系5.21）．その収束半径を求めよう．この場合は$0$でない係数が
+とびとびにしか出てこないので，係数比較判定法は使えない．
+\[
+	c_n	=	\begin{cases}
+					(-1)^k	\quad	&(n=(3k	\pm	1)	k/2	\text{の形のとき})	\\
+					0				\quad	&(\text{それ以外})
+				\end{cases}
+\]
+とおけば，$|c_n|	\leqq	1$だから$\limsup_{n\rightarrow	\infty}	\sqrt[n]{|c_n|}	\leqq	1$，
+また例えば部分列$n_k	=	(3k	-	1)	k	/2$をとれば
+\[
+	\lim_{k\rightarrow	\infty}	|c_{n_k}|^{1/n_k}	=1.
+\]
+したがって，コーシー-アダマールの公式により，収束半径は$\rho	=	1$である．
+\□
+
+\textbf{2重対数関数}
+
+例2.2の級数は$z=x$が実数で$-1	<	x	<	1$のとき$f_0(x)	=	x/(1-x)$，
+$f_1(x)=	-	\log	(1-x)$を表し，互いに$x	f_1'(x)	=	f_0	(x),	x	f'_2(x)=f_1(x)$という
+関係になっている．したがって
+\[
+	f_2(x)	=	-	\int_0^x	\frac{\log	(1-t)}{t}	dt
+\]
+と書くことができる．この関数は2重対数関数(dilogarithm,記号$\text{Li}_2	(x)$)
+とよばれ，興味深い性質が知られている
+(L.Lewin,	{\it	Polylogarithms and associated functions,2nd	ed.,	North	Holland,	1981)}
+たとえば
+\begin{align*}
+	&\text{Li}_2	\left(\frac{x}{1-x}\frac{y}{1-y}	\right)
+			=	\text{Li}_2	\left(\frac{x}{1-x}	\right)	\text{Li}_2	\left(\frac{y}{1-y}	\right)	
+			-\text{Li}_2(x)	-	\text{Li}_2(y)	-	\log(1-x)	-\log(1-y),	\\
+	&\text{Li}_2(1)	=	\frac{\pi^2}{6},	\qquad
+	\text{Li}_2\left(	\frac{\sqrt{5}-1}{2}\right)=\frac{\pi^2}{10}-\left(\log	\left(	\frac{\sqrt{5}-1}{2}	\right)	\right)^2.
+\end{align*}
+2重対数関数はオイラーをはじめとして多くの人がとりあげてきたが，近年整数論から数理物理学に
+いたるいろいろな分野に顔を出し，再び注目されている．
